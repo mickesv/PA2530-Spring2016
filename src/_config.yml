@@ -1,6 +1,6 @@
-name: Basic Template
+name: PA2530 Spring 2016
 highlighter: pygments
 safe: false
-baseurl: /basic-template
+baseurl: /PA2530-Spring2016
 exclude: [morea]
 morea_theme: cerulean
