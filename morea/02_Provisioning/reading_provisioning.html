@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> An overview of Foos | PA2530 Spring 2016 </title>
+  <title> Introduction to Provisioning | PA2530 Spring 2016 </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
 
@@ -54,9 +54,39 @@
 
 
 <div class="container">
-  <h1 id="reading-1">Reading 1</h1>
+  <h1 id="provisioning">Provisioning</h1>
+<p>Before a virtual machine image is ready to run your application, you may need to install additional software on it. For example, you may need to install a database engine, a web server, node.js and npm, or any other tools. This is, in the terminology of vagrant called <strong>provisioning</strong>. There are several tools available to help you with this, and vagrant provides its own simple way of doing this too (which you will try out in this module).</p>
 
-<p>This is the first reading. It is an internal web page.</p>
+<p><img src="FProvisioning.png" alt="Provisioning Lets you turn a bare bones machine into whatever you want" /></p>
+
+<h2 id="deployment">Deployment</h2>
+<p>Deployment, which may be seen as a part of the provisioning is the process of taking your application, spreading it to your configuration of servers, and starting it. With Vagrant, you have two options to start with directly, if you do not go for any of the provisioning tools available. You can either use Vagrant’s built-in provisioning facility to also download your application to your server and start it, or you can use the fact that the directory <code>/vagrant</code> is rsynced with your start directory. The latter means that your Vagrantfile is part of your actual build environment, which means that you only need one place to keep your files.</p>
+
+<p><img src="FBuildDir.png" alt="Directory Structure" /></p>
+
+<h1 id="tools">Tools</h1>
+<p>Several tools exist for this process, in addition to the simplistic support provided by Vagrant itself. Below is a brief list of some of the more common tools. These are often referred to as <em>Configuration Management Tools</em>, <em>Orchestration Tools</em>, or <em>Provisioning Tools</em>.</p>
+
+<ul>
+  <li><a href="http://www.ansible.com/home">Ansible</a></li>
+  <li><a href="https://www.chef.io/">Chef</a>
+    <ul>
+      <li><a href="http://shawn.dahlen.me/blog/2013/04/12/manage-all-application-environments-with-vagrant/">Example tutorial by Shawn Dahlen on how to combine Vagrant and Chef</a>   </li>
+    </ul>
+  </li>
+  <li><a href="https://puppetlabs.com/">Puppet</a>
+    <ul>
+      <li><a href="http://www.linux.com/news/software/applications/694157-setup-your-dev-environment-in-nothing-flat-with-puppet">Example tutorial by Max Martin on using Puppet and Vagrant</a> (The important stuff is on page 2).</li>
+      <li><a href="https://github.com/patrickdlee/vagrant-examples">A series of Vagrant examples using Puppet with increasing complexity</a></li>
+    </ul>
+  </li>
+  <li><a href="http://saltstack.com/">Salt</a>
+    <ul>
+      <li><a href="http://docs.saltstack.com/en/latest/contents.html">Salt User Manual</a> Chapter 3 in particular contains tutorials.</li>
+    </ul>
+  </li>
+</ul>
+
 
 </div>
 

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Install Vagrant | PA2530 Spring 2016 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <!--  Load bootswatch-based Morea theme file. -->
+  <link rel="stylesheet" href="/PA2530-Spring2016/css/themes/cerulean/bootstrap.min.css">
+  <link rel="stylesheet" href="/PA2530-Spring2016/css/style.css">
+  <link rel="stylesheet" href="/PA2530-Spring2016/css/syntax.css">
+  <link rel="shortcut icon" href="/PA2530-Spring2016/favicon.ico" type="image/x-icon" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+  <![endif]-->
+
+  <!-- Load Bootstrap JavaScript components -->
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- Responsive navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <!--  Display three horizontal lines when navbar collapsed. -->
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/PA2530-Spring2016/index.html"> PA2530 Spring 2016 </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/PA2530-Spring2016/modules/">Modules</a></li>
+        
+          <li><a href="/PA2530-Spring2016/outcomes/">Outcomes</a></li>
+        
+        
+          <li><a href="/PA2530-Spring2016/readings/">Readings</a></li>
+        
+        
+          <li><a href="/PA2530-Spring2016/experiences/">Experiences</a></li>
+        
+        
+          <li><a href="/PA2530-Spring2016/assessments/">Assessments</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="install-vagrant">Install Vagrant</h1>
+<ol>
+  <li>Make sure you have already installed <a href="/PA2530-Spring2016/morea/01_GetStarted/exp_virtualbox.html">VirtualBox</a></li>
+  <li>Download and install Vagrant for your machine: <a href="http://www.vagrantup.com/downloads.html">Download Vagrant</a></li>
+</ol>
+
+<h1 id="create-a-new-vagrant-virtual-machine-box">Create a new Vagrant Virtual Machine (Box)</h1>
+<ol>
+  <li>
+    <p>Create and enter a new directory, and then run <code>vagrant init hashicorp/precise64</code> to create a new configuration.</p>
+
+    <p>This will create a stub <code>Vagrantfile</code> which contains the configuration for your virtual box.</p>
+  </li>
+  <li>
+    <p>Start your virtual machine with <code>vagrant up</code> and log in to it with <code>vagrant ssh</code>.</p>
+
+    <p>This will download (if necessary) a virtualbox Ubuntu 12.04 LTS 64-bit image, start it for you, and make it available so that you can ssh into it.</p>
+  </li>
+  <li>
+    <p>Browse around. Note that the directory <code>/vagrant</code> is the same as your starting directory on your host computer.</p>
+  </li>
+</ol>
+
+<h3 id="summary-of-commands">Summary of Commands</h3>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>mkdir myVagrantTest <span class="o">&amp;&amp;</span> <span class="nb">cd </span>myVagrantTest
+<span class="nv">$ </span>vagrant init hashicorp/precise64   
+<span class="nv">$ </span>vagrant up
+<span class="o">[</span>Lots of text here, telling you what Vagrant is up to<span class="o">]</span>
+<span class="nv">$ </span>vagrant ssh
+Welcome to Ubuntu 12.04 LTS <span class="o">(</span>GNU/Linux 3.2.0-23-generic-pae i686<span class="o">)</span>
+
+ * Documentation:  https://help.ubuntu.com/
+New release <span class="s1">&#39;14.04.2 LTS&#39;</span> available.
+Run <span class="s1">&#39;do-release-upgrade&#39;</span> to upgrade to it.
+
+Welcome to your Vagrant-built virtual machine.
+Last login: Fri Sep <span class="m">14</span> 06:22:31 <span class="m">2012</span> from 10.0.2.2
+vagrant@precise32:~<span class="err">$</span></code></pre></div>
+
+<h3 id="notes">Notes</h3>
+
+<ul>
+  <li>Exit your Vagrant Virtual Machine as usual: <code>exit</code></li>
+  <li>Remember to clean up after yourself:</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>vagrant destroy -f</code></pre></div>
+
+<ul>
+  <li>If you have VirtualBox running, you can see how machines are added and removed as a consequence of the <code>up</code> and <code>destroy</code> commands.</li>
+  <li>
+    <p>To speed things up, you may wish to add a box (a virtual machine image) without attaching it to any particular configuration with <code>vagrant box add hashicorp/precise64</code></p>
+
+    <p>This will download the image and store it for future use. There is a <a href="https://atlas.hashicorp.com/boxes/search">Catalogue</a> of available virtual machine images available for Vagrant.</p>
+  </li>
+</ul>
+
+<h1 id="summary">Summary</h1>
+
+<p>You have now installed Vagrant. You have downloaded a virtual machine image, started it, and logged in to it. After looking around, you have destroyed your virtual machine, thus leaving a clean slate for the next time you bring the machine up again.</p>
+
+<p>Now would be a good idea to go back to the <a href="http://docs.vagrantup.com/v2/getting-started/index.html">Vagrant Tutorial</a> and play around a bit more.</p>
+
+<h2 id="review-questions">Review Questions</h2>
+<ul>
+  <li>What can you now use your virtual machine for?</li>
+  <li>What if your desired environment consists of several machines?</li>
+  <li>Can you install different software so that you may boot up specialised versions of your guest operating systems?</li>
+</ul>
+
+<!-- TODO Should these questions be part of assessments instead? -->
+
+
+</div>
+
+
+
+<div class="footer-background">
+<footer>
+  <div class="container page-footer">
+    
+      <p>Mikael Svahnberg | Department of Software Engineering | Blekinge Institute of Technology <br />
+Mikael.Svahnberg@bth.se<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
+       Last update on: <span>2015-03-12 12:10:08 +0100</span></p>
+    <p style="margin: 0">
+      4 modules
+      
+        | 6 outcomes
+      
+      
+        | 7 readings
+      
+      
+        | 4 experiences
+      
+      
+        | 2 assessments
+      
+    </p>
+  </div>
+</footer>
+</div>
+</body>
+</html>

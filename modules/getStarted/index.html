@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Learn to Foo | PA2530 Spring 2016 </title>
+  <title> Getting Started With Virtualisation | PA2530 Spring 2016 </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
 
@@ -54,8 +54,16 @@
 
 
   <div class="container">
-  <h1><small>Module: </small> Learn to Foo </h1>
-  <p><p>This is the first module in this sample template.</p>
+  <h1><small>Module: </small> Getting Started With Virtualisation </h1>
+  <p><p>Introduces a tool for virtualisation (VirtualBox), and a layer on top of this tool that enables automation (Vagrant).</p>
+
+<!--
+Before deploying a cloud application, it is a good idea to first develop and test it locally. This can be done by first setting up a "private virtual cloud" (PVC for short), with all the machines you want, provisioned with the server software you need, and your application deployed on them.
+
+In this module we introduce `VirtualBox` as one solution for creating your PVC.
+
+Many virtualisation softwares, and VirtualBox in particular, has a graphical user interface. While this may be desirable in some cases, this makes it difficult to automate the creation of your PVC. Therefore, we also introduce `Vagrant`, which functions as a command-line based layer on top of VirtualBox.
+-->
 </p>
 </div>
 
@@ -66,19 +74,19 @@
 
     
       
-      <h3>Construct Foos</h3>
+      <h3>Install and Test VirtualBox</h3>
       <p>
         
       </p>
-      <p>The student will be able to quickly and correctly construct instances of Foos.</p>
+      <p>The student will be able to create a new virtual machine running Ubuntu.</p>
 
     
       
-      <h3>Design and create Bars</h3>
+      <h3>Install and Test Vagrant</h3>
       <p>
         
       </p>
-      <p>This is the second learning outcome in this sample template.</p>
+      <p>The student will be able to set up a basic ubuntu virtual machine with vagrant and ssh into it.</p>
 
     
 
@@ -98,12 +106,34 @@
         
         <div class="col-sm-3">
           <div class="thumbnail">
-            <h4><a href="/PA2530-Spring2016/morea/foo/reading-1.html">An overview of Foos</a></h4>
-            <p>The first reading.</p>
+            <h4><a href="https://www.virtualbox.org/manual/ch01.html">Introduction to Virtualisation and VirtualBox</a></h4>
+            <p>Introduction to Virtualisation and VirtualBox</p>
 
             <p>
               
-              <span class="badge">10 pages</span>
+              <span class="badge">VirtualBox User Manual</span>
+              
+              <span class="badge">Tutorial</span>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="http://docs.vagrantup.com/v2/">Introduction to Vagrant</a></h4>
+            <p>Introduction to Vagrant</p>
+
+            <p>
+              
+              <span class="badge">Vagrant User Manual</span>
+              
+              <span class="badge">Tutorial</span>
               
             </p>
           </div>
@@ -129,8 +159,24 @@
         
         <div class="col-sm-3">
           <div class="thumbnail">
-            <h4><a href="/PA2530-Spring2016/morea/foo/experience.html">Foo construction</a></h4>
-            <p>Practice construction of Foo instances.</p>
+            <h4><a href="/PA2530-Spring2016/morea/01_GetStarted/exp_virtualbox.html">Install VirtualBox</a></h4>
+            <p>Install and test Virtualbox</p>
+
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="/PA2530-Spring2016/morea/01_GetStarted/exp_vagrant.html">Install Vagrant</a></h4>
+            <p>Install and test Vagrant</p>
 
             <p>
               
@@ -155,7 +201,7 @@
 
     
       
-      <h3>Assessment of Foo construction skill</h3>
+      <h3>Assessment for Getting Started with Virtualisation</h3>
       <p>
         
       </p>
@@ -163,41 +209,22 @@
     <p>
       <em>Outcomes assessed:</em>
       
-      <a href="/outcomes/#outcome1">Construct Foos</a>, 
+      <a href="/outcomes/#outcome_virtualbox">Install and Test VirtualBox</a>, 
       
-      <a href="/outcomes/#outcome2">Design and create Bars</a>
+      <a href="/outcomes/#outcome_vagrant">Install and Test Vagrant</a>
       
     </p>
     
-      <p>Assessed ability to construct foo instances.</p>
+      <p>You are done with this module when you have:</p>
 
-<link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css" />
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-
-<script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
-
-<div class="well">
-  <div id="assessment" style="height: 250px;"></div>
-</div>
-
-<script>
-Morris.Bar({
-  element: 'assessment',
-  hideHover: false,
-  data: [
-        { y: 'Very satisfactory (%)', num: 25 },
-        { y: 'Satisfactory (%)', num: 40 },
-        { y: 'Unsatisfactory (%)', num: 30 },
-        { y: 'Absent (%)', num: 5 },
-        ],
-  xkey: 'y',
-  ykeys: ['num'],
-  resize: true,
-  labels: ['Students']
-});
-</script>
-
+<ul>
+  <li>Installed VirtualBox</li>
+  <li>Created a virtual machine in VirtualBox</li>
+  <li>Installed an operating system on your virtual machine</li>
+  <li>Installed Vagrant</li>
+  <li>Created a Vagrant Box and logged in to it</li>
+  <li>Destroyed your started instance of a Vagrant Box</li>
+</ul>
 
     
 
