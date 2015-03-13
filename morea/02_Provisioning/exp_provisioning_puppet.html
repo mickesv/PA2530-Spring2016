@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Introduction to Provisioning | PA2530 Spring 2016 </title>
+  <title> Provisioning with Puppet | PA2530 Spring 2016 </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
 
@@ -54,39 +54,49 @@
 
 
 <div class="container">
-  <h1 id="provisioning">Provisioning</h1>
-<p>Before a virtual machine image is ready to run your application, you may need to install additional software on it. For example, you may need to install a database engine, a web server, node.js and npm, or any other tools. This is, in the terminology of vagrant called <strong>provisioning</strong>. There are several tools available to help you with this, and vagrant provides its own simple way of doing this too (which you will try out in this module).</p>
+  <h1 id="prerequisites">Prerequisites</h1>
+<ul>
+  <li>You have installed and tested <a href="/PA2530-Spring2016/modules/getStarted">VirtualBox and Vagrant</a></li>
+  <li>You have read the Vagrant tutorial on <a href="http://docs.vagrantup.com/v2/provisioning/index.html">Provisioning</a></li>
+  <li>You have tested <a href="/PA2530-Spring2016/morea/02_Provisioning/exp_provisioning.html">Provisioning with Vagrant</a></li>
+  <li>You have studied the Puppet Documentation mentioned in: <a href="/PA2530-Spring2016/morea/02_Provisioning/reading_provisioning.html">Provisioning</a></li>
+</ul>
 
-<p><img src="FProvisioning.png" alt="Provisioning Lets you turn a bare bones machine into whatever you want" /></p>
+<h1 id="convert-from-vagrant-provisioning-to-puppet">Convert from Vagrant Provisioning to Puppet</h1>
+<p>Remove your previous provisioning using Vagrant and the <code>"shell"</code> method from your <code>Vagrantfile</code>.</p>
 
-<h2 id="deployment">Deployment</h2>
-<p>Deployment, which may be seen as a part of the provisioning is the process of taking your application, spreading it to your configuration of servers, and starting it. With Vagrant, you have two options to start with directly, if you do not go for any of the provisioning tools available. You can either use Vagrant’s built-in provisioning facility to also download your application to your server and start it, or you can use the fact that the directory <code>/vagrant</code> is rsynced with your start directory. The latter means that your Vagrantfile is part of your actual build environment, which means that you only need one place to keep your files.</p>
-
-<p><img src="FBuildDir.png" alt="Directory Structure" /></p>
-
-<h1 id="tools">Tools</h1>
-<p>Several tools exist for this process, in addition to the simplistic support provided by Vagrant itself. Below is a brief list of some of the more common tools. These are often referred to as <em>Configuration Management Tools</em>, <em>Orchestration Tools</em>, or <em>Provisioning Tools</em>.</p>
+<p>Create a file <code>project_root/manifests/default.pp</code> and set it up to do the following:</p>
 
 <ul>
-  <li><a href="http://www.ansible.com/home">Ansible</a></li>
-  <li><a href="https://www.chef.io/">Chef</a>
-    <ul>
-      <li><a href="http://shawn.dahlen.me/blog/2013/04/12/manage-all-application-environments-with-vagrant/">Example tutorial by Shawn Dahlen on how to combine Vagrant and Chef</a>   </li>
-    </ul>
-  </li>
-  <li><a href="https://puppetlabs.com/">Puppet</a>
-    <ul>
-      <li><a href="http://www.linux.com/news/software/applications/694157-setup-your-dev-environment-in-nothing-flat-with-puppet">Example tutorial by Max Martin on using Puppet and Vagrant</a> (The important stuff is on page 2).</li>
-      <li><a href="https://github.com/patrickdlee/vagrant-examples">A series of Vagrant examples using Puppet with increasing complexity</a></li>
-    </ul>
-  </li>
-  <li><a href="http://saltstack.com/">Salt</a>
-    <ul>
-      <li><a href="http://docs.saltstack.com/en/latest/contents.html">Salt User Manual</a> Chapter 3 in particular contains tutorials.</li>
-    </ul>
+  <li>execute <code>apt-get update</code></li>
+  <li>install <code>curl</code></li>
+  <li>
+    <p>install <code>nodejs</code></p>
+
+    <div class="alert alert-info" role="alert"><b>Note</b>
+<p>Please note that you need to execute the following line in order to install the correct version of node.js:  </p>
+<code>
+curl -sL https://deb.nodesource.com/setup | sudo bash -
+</code>
+</div>
   </li>
 </ul>
 
+<h2 id="test">Test</h2>
+<p>Start up your box and execute the following:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">vagrant ssh -c <span class="s2">&quot;node --version&quot;</span></code></pre></div>
+
+<p>The version reported should <em>at least</em> be <code>v0.10.36</code>. If your version is <code>v0.6.12</code> (or similar) you have not executed the curl command above properly.</p>
+
+<h2 id="cleanup">Cleanup</h2>
+<p>Don’t forget to run <code>vagrant destroy -f</code> to clean up your box once you are done.</p>
+
+<!--
+# Checkpoint
+
+TODO: At this point I would want them to download and execute a script that gathers some information and sends it to me...
+-->
 
 </div>
 

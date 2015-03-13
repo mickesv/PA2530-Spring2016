@@ -60,13 +60,49 @@
   <li>You have read the Vagrant tutorial on <a href="http://docs.vagrantup.com/v2/provisioning/index.html">Provisioning</a></li>
 </ul>
 
-<h1 id="provisioning">Provisioning</h1>
+<h1 id="provisioning-with-vagrant">Provisioning with Vagrant</h1>
+<p>In this example you are going to make sure that you have <code>git</code> and <code>node.js</code> installed and ready to use. In order to install <code>node.js</code>, you also need <code>curl</code>.</p>
+
+<p>Edit your Vagrantfile so that it reads:</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;hashicorp/precise64&quot;</span>
+
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s2">&quot;shell&quot;</span><span class="p">,</span> <span class="ss">inline</span><span class="p">:</span> <span class="o">&lt;&lt;-</span><span class="no">SHELL</span>
+<span class="sh">sudo apt-get update</span>
+<span class="sh">sudo apt-get install -y curl</span>
+<span class="sh">sudo apt-get install -y git</span>
+<span class="sh">curl -sL https://deb.nodesource.com/setup | sudo bash -</span>
+<span class="sh">sudo apt-get install -y nodejs</span>
+<span class="sh">sudo apt-get install -y build-essential</span>
+<span class="no">  SHELL</span>
+<span class="k">end</span></code></pre></div>
+
+<p>As you can see, your provisioning in this case is a simple execution of a shell script.</p>
+
+<p>Now, start your box, ssh into it, and see what you have installed:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>vagrant up <span class="o">&amp;&amp;</span> vagrant ssh
+vagrant@precise64:~<span class="nv">$ </span>node --version <span class="o">&amp;&amp;</span> npm --version
+vagrant@precise64:~<span class="nv">$ </span><span class="nb">exit</span>
+<span class="nv">$ </span>vagrant destroy -f</code></pre></div>
 
 <h1 id="summary">Summary</h1>
+<p>You now have a virtual box running Ubuntu and with git and node.js installed.</p>
 
 <h2 id="review-questions">Review Questions</h2>
-<!-- TODO Should these questions be part of assessments instead? -->
+<ul>
+  <li>How can you integrate this into your development workflow?
+    <ul>
+      <li>How will you build your project on this platform?</li>
+      <li>How will you test your project on this platform?</li>
+    </ul>
+  </li>
+  <li>It takes some time to re-install node.js every time you bring this VM up. Can you speed this up in some way?</li>
+  <li>What if you need more machines?</li>
+</ul>
 
+<!-- TODO Should these questions be part of assessments instead? -->
 
 </div>
 
@@ -81,7 +117,7 @@ Mikael.Svahnberg@bth.se<br /></p>
 
     
     <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
-       Last update on: <span>2015-03-12 12:10:08 +0100</span></p>
+       Last update on: <span>2015-03-13 11:21:24 +0100</span></p>
     <p style="margin: 0">
       4 modules
       
@@ -91,10 +127,10 @@ Mikael.Svahnberg@bth.se<br /></p>
         | 7 readings
       
       
-        | 4 experiences
+        | 5 experiences
       
       
-        | 2 assessments
+        | 3 assessments
       
     </p>
   </div>
