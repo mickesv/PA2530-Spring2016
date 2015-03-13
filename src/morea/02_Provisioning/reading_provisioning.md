@@ -6,6 +6,7 @@ morea_summary: "Introduction to Provisioning"
 morea_type: reading
 morea_sort_order: 1
 morea_labels:
+ - Draft	
 ---
 # Provisioning
 Before a virtual machine image is ready to run your application, you may need to install additional software on it. For example, you may need to install a database engine, a web server, node.js and npm, or any other tools. This is, in the terminology of vagrant called **provisioning**. There are several tools available to help you with this, and vagrant provides its own simple way of doing this too (which you will try out in this module).
