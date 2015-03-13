@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Provisioning with Vagrant | PA2530 Spring 2016 </title>
+  <title> Basic Multi-Machine Setup | PA2530 Spring 2016 </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
 
@@ -57,13 +57,54 @@
   <h1 id="prerequisites">Prerequisites</h1>
 <ul>
   <li>You have installed and tested <a href="/PA2530-Spring2016/modules/getStarted">VirtualBox and Vagrant</a></li>
-  <li>You have read the Vagrant tutorial on <a href="http://docs.vagrantup.com/v2/provisioning/index.html">Provisioning</a></li>
+  <li>You have read the Vagrant tutorial on <a href="http://docs.vagrantup.com/v2/multi-machine/">Multi-Machines</a></li>
 </ul>
 
-<h1 id="provisioning-with-vagrant">Provisioning with Vagrant</h1>
-<p>In this example you are going to make sure that you have <code>git</code> and <code>node.js</code> installed and ready to use. In order to install <code>node.js</code>, you also need <code>curl</code>.</p>
+<h1 id="set-up-servers">Set up Servers</h1>
+<p>Configure your <code>Vagrantfile</code> so that the following boxes are created upon startup, using the <code>hashicorp/precise64</code> image:</p>
 
-<p>Edit your Vagrantfile so that it reads:</p>
+<ul>
+  <li>Application server, with the hostname <code>appserver</code></li>
+  <li>Database server, hostname <code>dbserver</code></li>
+  <li>Web server, hostname <code>web</code></li>
+  <li>
+    <p>Test servers with the hostnames <code>tst0</code>, <code>tst1</code>, and <code>tst2</code></p>
+
+    <p><strong>Note</strong>: The Vagrantfile is written in Ruby. Use this to make the number of test servers configurable.</p>
+  </li>
+</ul>
+
+<h1 id="provisioning">Provisioning</h1>
+<p>Using Puppet and the <code>node</code> directive, provision your servers so that:</p>
+
+<ul>
+  <li>appserver has node.js installed</li>
+  <li>dbserver has mysql installed and running</li>
+  <li>web has nginx installed and running</li>
+  <li>
+    <p>tst0 – tst2 have simply ran <code>apt-get update</code> and nothing more.</p>
+
+    <p><strong>Note 1</strong>: You can use regular expressions to define the node names in your Puppet manifest.</p>
+
+    <p><strong>Note 2</strong>: You should not need to change the provisioning in your <code>Vagrantfile</code>; it should remain one line that is valid for all VM’s.</p>
+  </li>
+</ul>
+
+<h2 id="test">Test</h2>
+<p>TODO</p>
+
+<h1 id="summary">Summary</h1>
+<p>TODO</p>
+
+<h2 id="review-questions">Review Questions</h2>
+<p>TODO</p>
+
+<!--
+# Provisioning with Vagrant
+In this example you are going to make sure that you have `git` and `node.js` installed and ready to use. In order to install `node.js`, you also need `curl`.
+
+Edit your Vagrantfile so that it reads:
+
 
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
   <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;hashicorp/precise64&quot;</span>
@@ -78,30 +119,27 @@
 <span class="no">  SHELL</span>
 <span class="k">end</span></code></pre></div>
 
-<p>As you can see, your provisioning in this case is a simple execution of a shell script.</p>
 
-<p>Now, start your box, ssh into it, and see what you have installed:</p>
+As you can see, your provisioning in this case is a simple execution of a shell script.
+
+Now, start your box, ssh into it, and see what you have installed:
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>vagrant up <span class="o">&amp;&amp;</span> vagrant ssh
 vagrant@precise64:~<span class="nv">$ </span>node --version <span class="o">&amp;&amp;</span> npm --version
 vagrant@precise64:~<span class="nv">$ </span><span class="nb">exit</span>
 <span class="nv">$ </span>vagrant destroy -f</code></pre></div>
 
-<h1 id="summary">Summary</h1>
-<p>You now have a virtual box running Ubuntu and with git and node.js installed.</p>
 
-<h2 id="review-questions">Review Questions</h2>
-<ul>
-  <li>How can you integrate this into your development workflow?
-    <ul>
-      <li>How will you build your project on this platform?</li>
-      <li>How will you test your project on this platform?</li>
-    </ul>
-  </li>
-  <li>It takes some time to re-install node.js every time you bring this VM up. Can you speed this up in some way?</li>
-  <li>What if you need more machines?</li>
-</ul>
+# Summary
+You now have a virtual box running Ubuntu and with git and node.js installed.
 
+## Review Questions
+- How can you integrate this into your development workflow?
+  - How will you build your project on this platform?
+  - How will you test your project on this platform?
+- It takes some time to re-install node.js every time you bring this VM up. Can you speed this up in some way?
+- What if you need more machines?
+-->
 <!-- TODO Should these questions be part of assessments instead? -->
 
 </div>
