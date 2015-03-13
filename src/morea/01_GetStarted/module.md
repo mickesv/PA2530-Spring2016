@@ -17,8 +17,7 @@ morea_type: module
 morea_sort_order: 1
 morea_icon_url: /morea/01_GetStarted/logo_vbox.png
 morea_labels:
- - VirtualBox
- - Vagrant
+ - 10 hours
 ---
 Introduces a tool for virtualisation (VirtualBox), and a layer on top of this tool that enables automation (Vagrant).
 

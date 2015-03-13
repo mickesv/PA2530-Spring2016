@@ -6,7 +6,8 @@ morea_type: experience
 morea_summary: "Provisioning with Puppet"
 morea_sort_order: 3
 morea_labels:
- - Required
+# - Required
+ - Checkpoint
 ---
 
 # Prerequisites
@@ -25,7 +26,7 @@ Create a file `project_root/manifests/default.pp` and set it up to do the follow
 - install `nodejs`
 
   <div class="alert alert-info" role="alert"><b>Note</b>
-  <p>Please note that you need to execute the following line in order to install the correct version of node.js:  </p>
+  <p>Please note that you first need to execute the following line in order to install the correct version of node.js:  </p>
   <code>
   curl -sL https://deb.nodesource.com/setup | sudo bash -
   </code>

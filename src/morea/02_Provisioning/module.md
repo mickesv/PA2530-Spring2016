@@ -17,8 +17,7 @@ morea_type: module
 morea_sort_order: 2
 morea_icon_url: /morea/02_Provisioning/logo_vagrant.png
 morea_labels:
- - Provisioning
- - Vagrant
- - Puppet
+ - Checkpoint
+ - 10 hours
 ---
 Introduces how to set up your virtual machine with the software you need in order to run your applications.
