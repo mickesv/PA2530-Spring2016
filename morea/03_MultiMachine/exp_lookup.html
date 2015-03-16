@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Basic Multi-Machine Setup | PA2530 Spring 2016 </title>
+  <title> Host Lookup | PA2530 Spring 2016 </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
 
@@ -58,67 +58,57 @@
 <ul>
   <li>You have installed and tested <a href="/PA2530-Spring2016/modules/getStarted">VirtualBox and Vagrant</a></li>
   <li>You have read the Vagrant tutorial on <a href="http://docs.vagrantup.com/v2/multi-machine/">Multi-Machines</a></li>
+  <li>You have configured the <a href="/PA2530-Spring2016/morea/03_MultiMachine/exp_multimachine.html">Basic Multi-Machine Setup</a></li>
 </ul>
 
-<h1 id="set-up-servers">Set up Servers</h1>
-<p>Configure your <code>Vagrantfile</code> so that the following boxes are created upon startup, using the <code>hashicorp/precise64</code> image:</p>
+<h1 id="host-lookup">Host lookup</h1>
+<p>There is no simple and obvious way to make sure that your VM’s can find out about each others’ IP-numbers. You could, as part of Vagrant’s provisioning get the IP-address from each machine, e.g. by executing:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">ifconfig eth0 <span class="p">|</span> grep inet <span class="p">|</span> awk <span class="s1">&#39;{ print $2 }&#39;</span> <span class="p">|</span> awk -F: <span class="s1">&#39;{print $2}&#39;</span> <span class="p">|</span> head -1</code></pre></div>
+
+<p>and put into a local <a href="http://redis.io/">Redis</a> database, that you then can query from your different machines. You can also set a static IP-address for each host, but this will not work when you “go cloud”, since you will typically receive a dynamic IP-address from the cloud provider.</p>
+
+<p>Other options include setting up one of your boxes as a DNS server, but it is unclear whether the cloud provider will allow this, and you will have little hope of keeping your DNS server secure. You may also break up yur startup into two parts, where you first create a proxy server with one <code>vagrant up</code> command, and then start the rest of your boxes giving the IP-address of your proxy server as a parameter.</p>
+
+<p>A final option, which is the cleanest I have found as yet, is to use Puppet. In your manifest file, you create an array in the top scope, and as you fire up each node, you append the IP-address into that array.</p>
+
+<h2 id="tasks">Tasks</h2>
+<p>Explore the following options. List benefits and liabilities of each. Create a proof-of-concept for each:</p>
 
 <ul>
-  <li>Application server, with the hostname <code>appserver</code></li>
-  <li>Database server, hostname <code>dbserver</code></li>
+  <li>Split start-up into two separate stages</li>
+  <li>Use local Redis server</li>
   <li>
-    <p>Web server, hostname <code>web</code></p>
+    <p>Use Puppet to create a local <code>/etc/hosts</code> on each guest with all your servers’ IP addresses. Please note that <code>/etc/hosts</code> is not a shared folder, so you will need to first create it as <code>/vagrant/hosts</code>.</p>
 
-    <p><strong>Note</strong>: You will want to set up port forwarding here, so that port 8080 on your host is forwarded to port 80 on your guest.</p>
-  </li>
-  <li>
-    <p>Test servers with the hostnames <code>tst0</code>, <code>tst1</code>, and <code>tst2</code></p>
-
-    <p><strong>Tip</strong>: The Vagrantfile is written in Ruby. Use this to make the number of test servers configurable.</p>
+    <p>You may run into the problem that all your virtual boxes have the same IP-number. This is because eth0 is the same for all of them, and Puppet uses the first available network interface to determine the <code>$ipaddress</code> variable.</p>
   </li>
 </ul>
 
-<h1 id="provisioning">Provisioning</h1>
-<p>Using Puppet and the <code>node</code> directive, provision your servers so that:</p>
+<!--
+if $ipaddress_eth1==undef {
+ $myip=$ipaddress
+ } else {
+ $myip=$ipaddress_eth1
+ }
 
-<ul>
-  <li>appserver has node.js installed</li>
-  <li>dbserver has mysql installed and running</li>
-  <li>web has nginx installed and running</li>
-  <li>
-    <p>tst0 – tst2 have simply ran <code>apt-get update</code> and nothing more.</p>
+notify{"my ip ${myip}":}
 
-    <p><strong>Tip 1</strong>: You can use regular expressions to define the node names in your Puppet manifest.</p>
-
-    <p><strong>Tip 2</strong>: Use the <code>default</code> node for the servers you have not yet set up.</p>
-
-    <p><strong>Note</strong>: You should not need to change the provisioning in your <code>Vagrantfile</code>; it should remain one line that is valid for all VM’s.</p>
-  </li>
-</ul>
-
-<h2 id="test">Test</h2>
-<p>Start your virtual boxes and run the following to test your configurations:</p>
-
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>vagrant ssh appserver -c <span class="s2">&quot;node --version &amp;&amp; npm --version&quot;</span>
-<span class="nv">$ </span>curl http://127.0.0.1:8080/
-<span class="nv">$ </span>vagrant ssh dbserver -c <span class="s2">&quot;mysqlshow --user=root --password=&lt;YOUR_ROOT_PASSWORD&gt;&quot;</span></code></pre></div>
-
-<p>Cleanup afterwards by running <code>vagrant destroy -f</code></p>
+host {$hostname:
+  ensure=>'present',
+  target=>'/vagrant/hosts',
+  ip=>$myip,
+ }
+-->
 
 <h1 id="summary">Summary</h1>
-<p>You have now a configuration that allows you to start up several virtual boxes and provision them separately.</p>
+<p>You have now a configuration that allows you to start up several virtual boxes and provision them separately, and where the different machines are aware of each other.</p>
 
-<h2 id="review-questions">Review Questions</h2>
+<h1 id="review-questions">Review Questions</h1>
 <ul>
-  <li>How should you structure your project directory so that all puppet and your server configurations are neatly kept in one place?</li>
-  <li>How do you populate your database with data?</li>
-  <li>How do you automatically configure your boxes so they can find each other?</li>
+  <li>How can you seamlessly transfer your application to a cloud provider?</li>
+  <li>Running several machines on the cloud can become expensive. Are there cheaper options available, rather than creating a single VM for each role?</li>
 </ul>
-
-<!-- TODO Should these questions be part of assessments instead? -->
-
-<h1 id="cave">Cave!</h1>
-<p>You have only scratched the surface of Puppet. There is a lot more to explore. For example, <a href="https://forge.puppetlabs.com/">https://forge.puppetlabs.com/</a> has a large set of preconfigured modules that one may install. You should also study how to set up a puppet master that continuously monitors and manages your configuraton.</p>
 
 </div>
 
