@@ -10,9 +10,9 @@ morea_readings:
 # - reading_provisioning_vagrant
 morea_experiences:
  - exp_multimachine
-# - exp_provisioning_puppet
+ - exp_lookup
 morea_assessments:
-# - ass_provisioning
+ - ass_multimachine
 morea_type: module
 morea_sort_order: 3
 morea_icon_url: /morea/03_MultiMachine/FNetwork.png

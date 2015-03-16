@@ -17,9 +17,12 @@ Configure your `Vagrantfile` so that the following boxes are created upon startu
 - Application server, with the hostname `appserver`
 - Database server, hostname `dbserver`
 - Web server, hostname `web`
+
+  **Note**: You will want to set up port forwarding here, so that port 8080 on your host is forwarded to port 80 on your guest.
+
 - Test servers with the hostnames `tst0`, `tst1`, and `tst2`
 
-  **Note**: The Vagrantfile is written in Ruby. Use this to make the number of test servers configurable.
+  **Tip**: The Vagrantfile is written in Ruby. Use this to make the number of test servers configurable.
   
 
 # Provisioning
@@ -30,58 +33,31 @@ Using Puppet and the `node` directive, provision your servers so that:
 - web has nginx installed and running
 - tst0 -- tst2 have simply ran `apt-get update` and nothing more.
 
-  **Note 1**: You can use regular expressions to define the node names in your Puppet manifest.
+  **Tip 1**: You can use regular expressions to define the node names in your Puppet manifest.
 
-  **Note 2**: You should not need to change the provisioning in your `Vagrantfile`; it should remain one line that is valid for all VM's.
+  **Tip 2**: Use the `default` node for the servers you have not yet set up.
+
+  **Note**: You should not need to change the provisioning in your `Vagrantfile`; it should remain one line that is valid for all VM's.
 
 ## Test
-TODO
-
-# Summary
-TODO
-
-## Review Questions
-TODO
-
-<!--
-# Provisioning with Vagrant
-In this example you are going to make sure that you have `git` and `node.js` installed and ready to use. In order to install `node.js`, you also need `curl`.
-
-Edit your Vagrantfile so that it reads:
-
-{% highlight ruby %}
-Vagrant.configure(2) do |config|
-  config.vm.box = "hashicorp/precise64"
-
-  config.vm.provision "shell", inline: <<-SHELL
-sudo apt-get update
-sudo apt-get install -y curl
-sudo apt-get install -y git
-curl -sL https://deb.nodesource.com/setup | sudo bash -
-sudo apt-get install -y nodejs
-sudo apt-get install -y build-essential
-  SHELL
-end
-{% endhighlight %}
-
-As you can see, your provisioning in this case is a simple execution of a shell script.
-
-Now, start your box, ssh into it, and see what you have installed:
+Start your virtual boxes and run the following to test your configurations:
 {% highlight bash %}
-$ vagrant up && vagrant ssh
-vagrant@precise64:~$ node --version && npm --version
-vagrant@precise64:~$ exit
-$ vagrant destroy -f
+$ vagrant ssh appserver -c "node --version && npm --version"
+$ curl http://127.0.0.1:8080/
+$ vagrant ssh dbserver -c "mysqlshow --user=root --password=<YOUR_ROOT_PASSWORD>"
 {% endhighlight %}
 
+Cleanup afterwards by running `vagrant destroy -f`
+
 # Summary
-You now have a virtual box running Ubuntu and with git and node.js installed.
+You have now a configuration that allows you to start up several virtual boxes and provision them separately.
 
 ## Review Questions
-- How can you integrate this into your development workflow?
-  - How will you build your project on this platform?
-  - How will you test your project on this platform?
-- It takes some time to re-install node.js every time you bring this VM up. Can you speed this up in some way?
-- What if you need more machines?
--->
+- How should you structure your project directory so that all puppet and your server configurations are neatly kept in one place?
+- How do you populate your database with data?
+- How do you automatically configure your boxes so they can find each other?
+
 <!-- TODO Should these questions be part of assessments instead? -->
+
+#Cave!
+You have only scratched the surface of Puppet. There is a lot more to explore. For example, <https://forge.puppetlabs.com/> has a large set of preconfigured modules that one may install. You should also study how to set up a puppet master that continuously monitors and manages your configuraton.
