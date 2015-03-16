@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Create Cloud Account | PA2530 Spring 2016 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <!--  Load bootswatch-based Morea theme file. -->
+  <link rel="stylesheet" href="/PA2530-Spring2016/css/themes/cerulean/bootstrap.min.css">
+  <link rel="stylesheet" href="/PA2530-Spring2016/css/style.css">
+  <link rel="stylesheet" href="/PA2530-Spring2016/css/syntax.css">
+  <link rel="shortcut icon" href="/PA2530-Spring2016/favicon.ico" type="image/x-icon" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+  <![endif]-->
+
+  <!-- Load Bootstrap JavaScript components -->
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- Responsive navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <!--  Display three horizontal lines when navbar collapsed. -->
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/PA2530-Spring2016/index.html"> PA2530 Spring 2016 </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/PA2530-Spring2016/modules/">Modules</a></li>
+        
+          <li><a href="/PA2530-Spring2016/outcomes/">Outcomes</a></li>
+        
+        
+          <li><a href="/PA2530-Spring2016/readings/">Readings</a></li>
+        
+        
+          <li><a href="/PA2530-Spring2016/experiences/">Experiences</a></li>
+        
+        
+          <li><a href="/PA2530-Spring2016/assessments/">Assessments</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="create-an-account">Create an Account</h1>
+
+<ul>
+  <li>[optional] Get a <a href="https://education.github.com/pack">Github Education Pack</a></li>
+  <li>Create an account on <a href="https://www.digitalocean.com/">DigitalOcean</a></li>
+</ul>
+
+<h1 id="set-up-vagrant">Set up Vagrant</h1>
+<p>Install the DigitalOcean and the Puppet plugins for Vagrant:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>vagrant plugin install vagrant-digitalocean</code></pre></div>
+
+<h1 id="get-a-token">Get a Token</h1>
+<p>Log in to DigitalOcean. Go to “Apps &amp; API”/”Generate new Token”.</p>
+
+<p>Give it the name <code>vagrant</code>, with read <em>and</em> write permissions.</p>
+
+<p><strong>Copy/paste and SAVE the token in a safe place. You will never find it again.</strong></p>
+
+<h1 id="generate-ssh-key">Generate SSH key</h1>
+<p>You need an SSH key to allow vagrant to login to your new droplet. Run <code>ssh-keygen</code>, and when asked where to save the generated key answer <code>/home/youruser/.ssh/digitalocean/api_id_rsa</code>. Hit <kbd>Enter</kbd> when asked for a passphrase.</p>
+
+<h1 id="create-vagrantfile">Create Vagrantfile</h1>
+
+<ul>
+  <li>Create and enter a new directory on your computer</li>
+  <li>Run <code>vagrant init</code> to create a new Vagrantfile</li>
+  <li>
+    <p>Edit the VagrantFile:</p>
+
+    <ul>
+      <li>Remove/comment the line “config.vm.box = “base”</li>
+      <li>Add the following:</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">hostname</span> <span class="o">=</span> <span class="s1">&#39;vagrant-test&#39;</span>
+
+  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provider</span> <span class="ss">:digital_ocean</span> <span class="k">do</span> <span class="o">|</span><span class="n">provider</span><span class="p">,</span> <span class="n">override</span><span class="o">|</span>
+    <span class="n">override</span><span class="o">.</span><span class="n">ssh</span><span class="o">.</span><span class="n">private_key_path</span> <span class="o">=</span> <span class="s1">&#39;~/.ssh/digitalocean/api_id_rsa&#39;</span>
+    <span class="n">override</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s1">&#39;digital_ocean&#39;</span>
+    <span class="n">override</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box_url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/smdahlen/vagrant-digitalocean/raw/master/box/digital_ocean.box&quot;</span>
+
+    <span class="n">provider</span><span class="o">.</span><span class="n">token</span> <span class="o">=</span> <span class="s1">&#39;YOUR-TOKEN&#39;</span>
+    <span class="n">provider</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="s1">&#39;ubuntu-14-04-x64&#39;</span>
+    <span class="n">provider</span><span class="o">.</span><span class="n">region</span> <span class="o">=</span> <span class="s1">&#39;nyc2&#39;</span>
+    <span class="n">provider</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="s1">&#39;512mb&#39;</span>
+    <span class="n">provider</span><span class="o">.</span><span class="n">setup</span> <span class="o">=</span> <span class="kp">false</span>
+  <span class="k">end</span></code></pre></div>
+
+<p>(See <a href="https://github.com/smdahlen/vagrant-digitalocean">https://github.com/smdahlen/vagrant-digitalocean</a> for an explanation of the options)</p>
+
+<ul>
+  <li>Replace YOUR-TOKEN with the token you saved earlier</li>
+</ul>
+
+<h2 id="test">Test</h2>
+
+<ul>
+  <li>Run <code>vagrant up</code> and wait for DigitalOcean to create your droplet</li>
+  <li>Run <code>vagrant ssh</code> and poke around.</li>
+</ul>
+
+<h2 id="cleanup">Cleanup</h2>
+<p>Once you are done, <strong>don’t forget</strong> to run <code>vagrant destroy -f</code>!
+If you don’t, your droplet will keep running and cost you money.</p>
+
+<h1 id="summary">Summary</h1>
+<p>You have now created a Vagrant configuration that runs on a cloud provider (DigitalOcean).</p>
+
+<h2 id="review-questions">Review Questions</h2>
+
+<ul>
+  <li>This Vagrantfile has no default settings for if you want to run it locally. How can you add this, and make sure that it mimics the settings that apply to DigitalOcean?</li>
+</ul>
+
+<!-- TODO Should these questions be part of assessments instead? -->
+
+</div>
+
+
+
+<div class="footer-background">
+<footer>
+  <div class="container page-footer">
+    
+      <p>Mikael Svahnberg | Department of Software Engineering | Blekinge Institute of Technology <br />
+Mikael.Svahnberg@bth.se<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
+       Last update on: <span>2015-03-16 14:55:15 +0100</span></p>
+    <p style="margin: 0">
+      5 modules
+      
+        | 9 outcomes
+      
+      
+        | 8 readings
+      
+      
+        | 10 experiences
+      
+      
+        | 5 assessments
+      
+    </p>
+  </div>
+</footer>
+</div>
+</body>
+</html>

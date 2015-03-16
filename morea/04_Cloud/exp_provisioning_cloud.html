@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Welcome to Jekyll! | PA2530 Spring 2016 </title>
+  <title> Cloud Provisioning | PA2530 Spring 2016 </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
 
@@ -53,26 +53,57 @@
 </div>
 
 
-  <h2>Welcome to Jekyll!</h2>
-<p class="meta">14 Jan 2014</p>
+<div class="container">
+  <h1 id="prerequisites">Prerequisites</h1>
+<ul>
+  <li>You have created a DigitalOcean <a href="/morea/04_Cloud/exp_create.html">account</a></li>
+  <li>You have configured your Vagrantfile as a <a href="/morea/04_Cloud/exp_multimachine.html">multi-machine-setup</a></li>
+</ul>
 
-<div class="post">
-<p>You’ll find this post in your <code>_posts</code> directory - edit this post and re-build (or run with the <code>-w</code> switch) to see your changes!
-To add new posts, simply add a file in the <code>_posts</code> directory that follows the convention: YYYY-MM-DD-name-of-post.ext.</p>
+<h1 id="install-puppet">Install Puppet</h1>
+<p>By default, Puppet is not installed on DigitalOcean boxes. Run the following to install a plugin that allows Vagrant to install it on startup.</p>
 
-<p>Jekyll also offers powerful support for code snippets:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>vagrant plugin install vagrant-puppet-install</code></pre></div>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">&quot;Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">&#39;Tom&#39;</span><span class="p">)</span>
-<span class="c1">#=&gt; prints &#39;Hi, Tom&#39; to STDOUT.</span></code></pre></div>
+<h1 id="create-your-puppet-manifest">Create your Puppet manifest</h1>
+<p>Provision your boxes using Puppet so that:</p>
 
-<p>Check out the <a href="http://jekyllrb.com">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/mojombo/jekyll">Jekyll’s GitHub repo</a>.</p>
+<ul>
+  <li>appserver has node.js installed.</li>
+  <li>dbserver has mysql installed and running.</li>
+</ul>
+
+<p>You <em>ought</em> to be able to re-use a lot of the manifest that you created in your <a href="/morea/03_MultiMachine/exp_multimachine.html">Basic Multi-Machine Setup</a>.</p>
+
+<h1 id="configure-vagrant">Configure Vagrant</h1>
+<p>Add the following to your <code>Vagrantfile</code> to install Puppet and use your manifest to provision your boxes:</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">config</span><span class="o">.</span><span class="n">puppet_install</span><span class="o">.</span><span class="n">puppet_version</span> <span class="o">=</span> <span class="ss">:latest</span>    
+<span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="ss">:puppet</span></code></pre></div>
+
+<h2 id="test">Test</h2>
+
+<ul>
+  <li>Run <code>vagrant up</code> and wait for DigitalOcean to create your droplets</li>
+  <li>Run the following:</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>vagrant ssh appserver -c <span class="s2">&quot;node --version &amp;&amp; npm --version&quot;</span>
+<span class="nv">$ </span>vagrant ssh dbserver -c <span class="s2">&quot;mysqlshow --user=root --password=&lt;YOUR_ROOT_PASSWORD&gt;&quot;</span></code></pre></div>
+
+<ul>
+  <li>Run <code>vagrant ssh &lt;boxname&gt;</code> and poke around.</li>
+</ul>
+
+<h2 id="cleanup">Cleanup</h2>
+<p>Once you are done, <strong>don’t forget</strong> to run <code>vagrant destroy -f</code>!
+If you don’t, your droplet will keep running and cost you money.</p>
+
+<h1 id="summary">Summary</h1>
+<p>You have now created a Vagrant configuration that runs two boxes on a cloud provider (DigitalOcean), individually provisioned.</p>
 
 
 </div>
-
 
 
 
