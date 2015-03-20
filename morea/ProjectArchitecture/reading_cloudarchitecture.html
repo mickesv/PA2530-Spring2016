@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Provisioning with Puppet | PA2530 Spring 2016 </title>
+  <title> Cloud Architectures | PA2530 Spring 2016 </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
 
@@ -54,49 +54,7 @@
 
 
 <div class="container">
-  <h1 id="prerequisites">Prerequisites</h1>
-<ul>
-  <li>You have installed and tested <a href="/PA2530-Spring2016/modules/getStarted">VirtualBox and Vagrant</a></li>
-  <li>You have read the Vagrant tutorial on <a href="http://docs.vagrantup.com/v2/provisioning/index.html">Provisioning</a></li>
-  <li>You have tested <a href="/PA2530-Spring2016/morea/02_Provisioning/exp_provisioning.html">Provisioning with Vagrant</a></li>
-  <li>You have studied the Puppet Documentation mentioned in: <a href="/PA2530-Spring2016/morea/02_Provisioning/reading_provisioning.html">Provisioning</a></li>
-</ul>
-
-<h1 id="convert-from-vagrant-provisioning-to-puppet">Convert from Vagrant Provisioning to Puppet</h1>
-<p>Remove your previous provisioning using Vagrant and the <code>"shell"</code> method from your <code>Vagrantfile</code>.</p>
-
-<p>Create a file <code>project_root/manifests/default.pp</code> and set it up to do the following:</p>
-
-<ul>
-  <li>execute <code>apt-get update</code></li>
-  <li>install <code>curl</code></li>
-  <li>
-    <p>install <code>nodejs</code></p>
-
-    <div class="alert alert-info" role="alert"><b>Note</b>
-<p>Please note that you first need to execute the following line in order to install the correct version of node.js:  </p>
-<code>
-curl -sL https://deb.nodesource.com/setup | sudo bash -
-</code>
-</div>
-  </li>
-</ul>
-
-<h2 id="test">Test</h2>
-<p>Start up your box and execute the following:</p>
-
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">vagrant ssh -c <span class="s2">&quot;node --version&quot;</span></code></pre></div>
-
-<p>The version reported should <em>at least</em> be <code>v0.10.36</code>. If your version is <code>v0.6.12</code> (or similar) you have not executed the curl command above properly.</p>
-
-<h2 id="cleanup">Cleanup</h2>
-<p>Don’t forget to run <code>vagrant destroy -f</code> to clean up your box once you are done.</p>
-
-<!--
-# Checkpoint
-
-TODO: At this point I would want them to download and execute a script that gathers some information and sends it to me...
--->
+  <!-- TODO -->
 
 </div>
 
@@ -111,20 +69,20 @@ Mikael.Svahnberg@bth.se<br /></p>
 
     
     <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
-       Last update on: <span>2015-03-16 14:55:15 +0100</span></p>
+       Last update on: <span>2015-03-20 13:27:01 +0100</span></p>
     <p style="margin: 0">
-      5 modules
+      7 modules
       
-        | 9 outcomes
-      
-      
-        | 8 readings
+        | 13 outcomes
       
       
-        | 10 experiences
+        | 13 readings
       
       
-        | 5 assessments
+        | 15 experiences
+      
+      
+        | 9 assessments
       
     </p>
   </div>

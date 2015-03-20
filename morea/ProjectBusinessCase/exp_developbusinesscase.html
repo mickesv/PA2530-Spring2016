@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Multiple Machine Setup | PA2530 Spring 2016 </title>
+  <title> Business Case | PA2530 Spring 2016 </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
 
@@ -56,39 +56,38 @@
 <div class="container">
   <h1 id="prerequisites">Prerequisites</h1>
 <ul>
-  <li>You have created a DigitalOcean <a href="/morea/04_Cloud/exp_create.html">account</a></li>
+  <li>You have <a href="/PA2530-Spring2016/morea/ProjectBusinessCase/exp_selectproject.html">Selected a Project</a> and briefly described it.</li>
 </ul>
 
-<h1 id="multiple-machines">Multiple Machines</h1>
-<p>Configure your <code>Vagrantfile</code> to include the following two boxes:</p>
+<h1 id="cloud-requirements">Cloud Requirements</h1>
+<p>With your current (and initial) understanding of the problem, describe your perceived requirements in terms of:</p>
 
 <ul>
-  <li>Application server, with the hostname <code>appserver</code></li>
-  <li>Database server, with the hostname <code>dbserver</code></li>
+  <li>Number of required machines</li>
+  <li>Computing power of machines</li>
+  <li>Storage requirements</li>
+  <li>Bandwidth requirements</li>
+  <li>Domain name(s)</li>
+  <li>Specific security requirements</li>
+  <li>Specific privacy requirements</li>
 </ul>
 
-<p>Note that you do not need to modify the <code>config.vm.provider</code> block you created previously.</p>
+<p>Give rough estimates on the baseline requirements and compare those to the burst requirements (e.g. during a major sales rush).</p>
 
-<h2 id="test">Test</h2>
+<h1 id="cost--benefit-analysis">Cost / Benefit Analysis</h1>
+<p>Make a rough estimate on what it would cost you to host the above on your own, and compare it with at least two cloud providers. Bear in mind that you can quickly add capacity to a cloud solution (provided you have designed your application well).</p>
+
+<p>Consider the following items in particular:</p>
 
 <ul>
-  <li>Run <code>vagrant up</code> and wait for DigitalOcean to create your droplets</li>
-  <li>Run <code>vagrant ssh &lt;boxname&gt;</code> and poke around.</li>
+  <li>Capital Investment</li>
+  <li>Setup costs</li>
+  <li>Monthly service fees</li>
+  <li>Monthly staff costs</li>
+  <li>Net cost over first year</li>
+  <li>Net cost over three years</li>
+  <li>Net cost over five years</li>
 </ul>
-
-<h2 id="cleanup">Cleanup</h2>
-<p>Once you are done, <strong>don’t forget</strong> to run <code>vagrant destroy -f</code>!
-If you don’t, your droplet will keep running and cost you money.</p>
-
-<h1 id="summary">Summary</h1>
-<p>You have now created a Vagrant configuration that runs two boxes on a cloud provider (DigitalOcean).</p>
-
-<h2 id="review-questions">Review Questions</h2>
-<ul>
-  <li>How do you provision your droplets individually?</li>
-</ul>
-
-<!-- TODO Should these questions be part of assessments instead? -->
 
 </div>
 
@@ -103,20 +102,20 @@ Mikael.Svahnberg@bth.se<br /></p>
 
     
     <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
-       Last update on: <span>2015-03-16 14:55:15 +0100</span></p>
+       Last update on: <span>2015-03-20 13:27:01 +0100</span></p>
     <p style="margin: 0">
-      5 modules
+      7 modules
       
-        | 9 outcomes
-      
-      
-        | 8 readings
+        | 13 outcomes
       
       
-        | 10 experiences
+        | 13 readings
       
       
-        | 5 assessments
+        | 15 experiences
+      
+      
+        | 9 assessments
       
     </p>
   </div>

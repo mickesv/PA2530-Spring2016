@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Foo construction | PA2530 Spring 2016 </title>
+  <title> Cloud Provisioning | PA2530 Spring 2016 </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
 
@@ -54,11 +54,54 @@
 
 
 <div class="container">
-  <h3 id="practice-the-construction-of-foos">Practice the construction of Foos</h3>
+  <h1 id="prerequisites">Prerequisites</h1>
+<ul>
+  <li>You have created a DigitalOcean <a href="/morea/DeployCloud/exp_create.html">account</a></li>
+  <li>You have configured your Vagrantfile as a <a href="/morea/DeployCloud/exp_multimachines.html">multi-machine-setup</a></li>
+</ul>
 
-<p>Constructing Foos is not hard.  Here is what you need to know.</p>
+<h1 id="install-puppet">Install Puppet</h1>
+<p>By default, Puppet is not installed on DigitalOcean boxes. Run the following to install a plugin that allows Vagrant to install it on startup.</p>
 
-<p>(More details on Foo construction would go here.)</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>vagrant plugin install vagrant-puppet-install</code></pre></div>
+
+<h1 id="create-your-puppet-manifest">Create your Puppet manifest</h1>
+<p>Provision your boxes using Puppet so that:</p>
+
+<ul>
+  <li>appserver has node.js installed.</li>
+  <li>dbserver has mysql installed and running.</li>
+</ul>
+
+<p>You <em>ought</em> to be able to re-use a lot of the manifest that you created in your <a href="/morea/DeployMultiMachine/exp_multimachine.html">Basic Multi-Machine Setup</a>.</p>
+
+<h1 id="configure-vagrant">Configure Vagrant</h1>
+<p>Add the following to your <code>Vagrantfile</code> to install Puppet and use your manifest to provision your boxes:</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">config</span><span class="o">.</span><span class="n">puppet_install</span><span class="o">.</span><span class="n">puppet_version</span> <span class="o">=</span> <span class="ss">:latest</span>    
+<span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="ss">:puppet</span></code></pre></div>
+
+<h2 id="test">Test</h2>
+
+<ul>
+  <li>Run <code>vagrant up</code> and wait for DigitalOcean to create your droplets</li>
+  <li>Run the following:</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>vagrant ssh appserver -c <span class="s2">&quot;node --version &amp;&amp; npm --version&quot;</span>
+<span class="nv">$ </span>vagrant ssh dbserver -c <span class="s2">&quot;mysqlshow --user=root --password=&lt;YOUR_ROOT_PASSWORD&gt;&quot;</span></code></pre></div>
+
+<ul>
+  <li>Run <code>vagrant ssh &lt;boxname&gt;</code> and poke around.</li>
+</ul>
+
+<h2 id="cleanup">Cleanup</h2>
+<p>Once you are done, <strong>don’t forget</strong> to run <code>vagrant destroy -f</code>!
+If you don’t, your droplet will keep running and cost you money.</p>
+
+<h1 id="summary">Summary</h1>
+<p>You have now created a Vagrant configuration that runs two boxes on a cloud provider (DigitalOcean), individually provisioned.</p>
+
 
 </div>
 
