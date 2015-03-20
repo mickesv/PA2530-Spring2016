@@ -15,8 +15,9 @@ morea_assessments:
  - ass_multimachine
 morea_type: module
 morea_sort_order: 3
-morea_icon_url: /morea/03_MultiMachine/FNetwork.png
+morea_icon_url: /morea/DeployMultiMachine/FNetwork.png
 morea_labels:
+ - Lab 1
  - 10 hours
 ---
 Introduces how to configure startup of several machines at once, provisioned with different software.

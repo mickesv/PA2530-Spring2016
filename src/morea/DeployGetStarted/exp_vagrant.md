@@ -8,7 +8,7 @@ morea_sort_order: 1
 ---
 
 # Install Vagrant
-1. Make sure you have already installed [VirtualBox]({{site.baseurl}}/morea/01_GetStarted/exp_virtualbox.html)
+1. Make sure you have already installed [VirtualBox]({{site.baseurl}}/morea/DeployGetStarted/exp_virtualbox.html)
 1. Download and install Vagrant for your machine: [Download Vagrant](http://www.vagrantup.com/downloads.html)
 
 # Create a new Vagrant Virtual Machine (Box)

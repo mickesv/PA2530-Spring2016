@@ -10,7 +10,7 @@ morea_sort_order: 1
 # Prerequisites
 - You have installed and tested [VirtualBox and Vagrant]({{site.baseurl}}/modules/getStarted)
 - You have read the Vagrant tutorial on [Multi-Machines](http://docs.vagrantup.com/v2/multi-machine/)
-- You have configured the [Basic Multi-Machine Setup]({{site.baseurl}}/morea/03_MultiMachine/exp_multimachine.html)
+- You have configured the [Basic Multi-Machine Setup]({{site.baseurl}}/morea/DeployMultiMachine/exp_multimachine.html)
 
 # Host lookup
 There is no simple and obvious way to make sure that your VM's can find out about each others' IP-numbers. You could, as part of Vagrant's provisioning get the IP-address from each machine, e.g. by executing:

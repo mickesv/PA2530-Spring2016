@@ -4,7 +4,9 @@ morea_id: home
 morea_type: home
 ---
 
-## Welcome to PA2530 Cloud Computing
+
+
+## ![BTHLogo]({{site.baseurl}}/morea/BTHlogo_big.png) Welcome to PA2530 Cloud Computing
 This course is offered by Blekinge Institute of Technology.
 
 Extract from Course Syllabus (in Swedish, for now):

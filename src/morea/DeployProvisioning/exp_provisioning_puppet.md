@@ -13,8 +13,8 @@ morea_labels:
 # Prerequisites
 - You have installed and tested [VirtualBox and Vagrant]({{site.baseurl}}/modules/getStarted)
 - You have read the Vagrant tutorial on [Provisioning](http://docs.vagrantup.com/v2/provisioning/index.html)
-- You have tested [Provisioning with Vagrant]({{site.baseurl}}/morea/02_Provisioning/exp_provisioning.html)
-- You have studied the Puppet Documentation mentioned in: [Provisioning]({{site.baseurl}}/morea/02_Provisioning/reading_provisioning.html)
+- You have tested [Provisioning with Vagrant]({{site.baseurl}}/morea/DeployProvisioning/exp_provisioning.html)
+- You have studied the Puppet Documentation mentioned in: [Provisioning]({{site.baseurl}}/morea/DeployProvisioning/reading_provisioning.html)
 
 # Convert from Vagrant Provisioning to Puppet
 Remove your previous provisioning using Vagrant and the `"shell"` method from your `Vagrantfile`.

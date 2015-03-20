@@ -7,7 +7,7 @@ morea_summary: "Create a multi-machine setup for your cloud provider"
 morea_sort_order: 1
 ---
 # Prerequisites
-- You have created a DigitalOcean [account]({{site.url}}/morea/04_Cloud/exp_create.html)
+- You have created a DigitalOcean [account]({{site.url}}/morea/DeployCloud/exp_create.html)
 
 # Multiple Machines
 Configure your `Vagrantfile` to include the following two boxes:

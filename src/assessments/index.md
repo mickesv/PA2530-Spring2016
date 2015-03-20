@@ -11,7 +11,7 @@ title: Assessments
 {% if module.morea_coming_soon != true and module.morea_assessments.size > 0 %}
 <div class="{% cycle 'section-background-1', 'section-background-2' %}">
   <div class="container">
-    <h2><small>Module:</small> <a href="{{ site.baseurl }}{{ module.module_page.url }}">{{ module.title }}</a></h2>
+    <h2><!--<small>Module:</small>--> <a href="{{ site.baseurl }}{{ module.module_page.url }}"><img src="{{ site.baseurl }}{{ module.morea_icon_url }}" width="50" class="img-circle img-responsive morea-img-hover" align="left">&nbsp;{{ module.title }}</a></h2>
 
     {% for page_id in module.morea_assessments %}
       {% assign assessment = site.morea_page_table[page_id] %}

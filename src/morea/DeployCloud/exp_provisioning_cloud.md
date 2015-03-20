@@ -9,8 +9,8 @@ morea_labels:
  - Checkpoint
 ---
 # Prerequisites
-- You have created a DigitalOcean [account]({{site.url}}/morea/04_Cloud/exp_create.html)
-- You have configured your Vagrantfile as a [multi-machine-setup]({{site.url}}/morea/04_Cloud/exp_multimachine.html)
+- You have created a DigitalOcean [account]({{site.url}}/morea/DeployCloud/exp_create.html)
+- You have configured your Vagrantfile as a [multi-machine-setup]({{site.url}}/morea/DeployCloud/exp_multimachines.html)
 
 # Install Puppet
 By default, Puppet is not installed on DigitalOcean boxes. Run the following to install a plugin that allows Vagrant to install it on startup.
@@ -24,7 +24,7 @@ Provision your boxes using Puppet so that:
 - appserver has node.js installed.
 - dbserver has mysql installed and running.
 
-You *ought* to be able to re-use a lot of the manifest that you created in your [Basic Multi-Machine Setup]({{site.url}}/morea/03_MultiMachine/exp_multimachine.html).
+You *ought* to be able to re-use a lot of the manifest that you created in your [Basic Multi-Machine Setup]({{site.url}}/morea/DeployMultiMachine/exp_multimachine.html).
 
 # Configure Vagrant
 Add the following to your `Vagrantfile` to install Puppet and use your manifest to provision your boxes:
