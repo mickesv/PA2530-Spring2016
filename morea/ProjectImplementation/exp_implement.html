@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Welcome to Jekyll! | PA2530 Spring 2016 </title>
+  <title> Implement Project | PA2530 Spring 2016 </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
 
@@ -53,26 +53,31 @@
 </div>
 
 
-  <h2>Welcome to Jekyll!</h2>
-<p class="meta">14 Jan 2014</p>
+<div class="container">
+  <h1 id="prerequisites">Prerequisites</h1>
+<ul>
+  <li>You have <a href="/PA2530-Spring2016/morea/ProjectArchitecture/exp_architecture.html">Created an Architecture</a> for your project.</li>
+  <li>You have <a href="/PA2530-Spring2016/morea/ProjectArchitecture/exp_deploymentplan.html">Created a Deployment Plan</a> for your project.</li>
+  <li>You have <a href="/PA2530-Spring2016/morea/ProjectImplementation/exp_testplan.html">Created a Test Plan</a> for your project.</li>
+</ul>
 
-<div class="post">
-<p>You’ll find this post in your <code>_posts</code> directory - edit this post and re-build (or run with the <code>-w</code> switch) to see your changes!
-To add new posts, simply add a file in the <code>_posts</code> directory that follows the convention: YYYY-MM-DD-name-of-post.ext.</p>
+<h1 id="implement">Implement</h1>
+<p>Implement your project according to your architecture.</p>
 
-<p>Jekyll also offers powerful support for code snippets:</p>
+<p>If the time estimates you of course have made for your project indicate that it is too large to fit within the time frame, then select a reasonable subset of features to develop. Select this subset such that you still span as much as possible of your cloud deployment architecture. Motivate your selection and negotiate it with the course manager.</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">&quot;Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">&#39;Tom&#39;</span><span class="p">)</span>
-<span class="c1">#=&gt; prints &#39;Hi, Tom&#39; to STDOUT.</span></code></pre></div>
+<h1 id="test-often">Test Often</h1>
+<p>Use your development and test deployment environments to test the project according to your test plans. Run the automated tests often, and the manual tests regularly.</p>
 
-<p>Check out the <a href="http://jekyllrb.com">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/mojombo/jekyll">Jekyll’s GitHub repo</a>.</p>
+<p>You may wish to consider continuous integration sytems to help you with your tests. For example:</p>
+
+<ul>
+  <li><a href="https://travis-ci.org/getting_started">Travis CI</a> is available online for open source projects.</li>
+  <li><a href="http://jenkins-ci.org/">Jenkins CI</a> requires you to install it, but is more often used by industry.</li>
+</ul>
 
 
 </div>
-
 
 
 
