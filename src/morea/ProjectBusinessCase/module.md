@@ -19,6 +19,6 @@ morea_sort_order: 5
 morea_icon_url: /morea/ProjectBusinessCase/logo_business.png
 morea_labels:
  - Project
- - 15 hours
+ - 10 hours
 ---
 Different reasons for using the cloud. Select and describe a Project.
