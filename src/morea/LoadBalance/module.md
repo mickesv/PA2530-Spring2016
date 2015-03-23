@@ -15,6 +15,6 @@ morea_sort_order: 31
 morea_icon_url: /morea/LoadBalance/logo_lb.jpg
 morea_labels:
  - Lab 2
- - 40 hours 
+ - 25 hours 
 ---
 Simple loadbalancing on an existing hypervisor.
