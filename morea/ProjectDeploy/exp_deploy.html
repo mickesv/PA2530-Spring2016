@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Literate DevOps | PA2530 Spring 2016 </title>
+  <title> Deploy Project | PA2530 Spring 2016 </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
 
@@ -54,7 +54,26 @@
 
 
 <div class="container">
-  
+  <h1 id="prerequisites">Prerequisites</h1>
+<ul>
+  <li>You have <a href="/PA2530-Spring2016/morea/ProjectArchitecture/exp_deploymentplan.html">Created a Deployment Plan</a> for your project.</li>
+  <li>You have <a href="/PA2530-Spring2016/morea/ProjectImplementation/exp_testplan.html">Created a Test Plan</a> for your project.</li>
+  <li>You have <a href="/PA2530-Spring2016/morea/ProjectImplementation/exp_implement.html">Implemented</a> your project.</li>
+</ul>
+
+<h1 id="test">Test</h1>
+<p>Deploy your project in your test environment. Run your system tests. Run any other tests that you have created.</p>
+
+<p>Maintain a test log during this stage so that it is possible to see which commands you enter, which tests you have run, in what order, and the state of your application and machines before and after each test.</p>
+
+<h1 id="stage">Stage</h1>
+<p>If you have defined a staging environment, deploy your project here and re-run all the tests once more. Update your test log continuously.</p>
+
+<h1 id="deploy">Deploy</h1>
+<p>Deploy your project with your cloud provider, and re-run relevant tests again (remember to keep your test log updated).</p>
+
+<h1 id="cleanup">Cleanup</h1>
+<p>Rember to always clean up and bring down your machines when you are not using them. You are now running live on a cloud provider and have a limited budget.</p>
 
 </div>
 
