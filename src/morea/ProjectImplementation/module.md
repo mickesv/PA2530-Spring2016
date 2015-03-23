@@ -14,7 +14,7 @@ morea_assessments:
  - ass_testplan
  - ass_implementation
 morea_type: module
-morea_sort_order: 7
+morea_sort_order: 23
 morea_icon_url: /morea/ProjectImplementation/logo_implement.jpg
 morea_labels:
  - Project

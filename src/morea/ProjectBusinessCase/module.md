@@ -15,7 +15,7 @@ morea_experiences:
 morea_assessments:
  - ass_businesscase
 morea_type: module
-morea_sort_order: 5
+morea_sort_order: 21
 morea_icon_url: /morea/ProjectBusinessCase/logo_business.png
 morea_labels:
  - Project

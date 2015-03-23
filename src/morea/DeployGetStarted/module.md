@@ -14,7 +14,7 @@ morea_experiences:
 morea_assessments:
  - ass_vagrant
 morea_type: module
-morea_sort_order: 1
+morea_sort_order: 11
 morea_icon_url: /morea/DeployGetStarted/logo_vbox.png
 morea_labels:
  - Lab 1

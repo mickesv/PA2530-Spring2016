@@ -16,7 +16,7 @@ morea_assessments:
  - ass_deploymentplan
  - ass_architecturepresentation
 morea_type: module
-morea_sort_order: 6
+morea_sort_order: 22
 morea_icon_url: /morea/ProjectArchitecture/logo_cloud.png
 morea_labels:
  - Project

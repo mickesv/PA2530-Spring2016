@@ -15,7 +15,7 @@ morea_experiences:
 morea_assessments:
  - ass_provisioning
 morea_type: module
-morea_sort_order: 2
+morea_sort_order: 12
 morea_icon_url: /morea/DeployProvisioning/logo_vagrant.png
 morea_labels:
  - Lab 1

@@ -14,7 +14,7 @@ morea_experiences:
 morea_assessments:
  - ass_multimachine
 morea_type: module
-morea_sort_order: 3
+morea_sort_order: 13
 morea_icon_url: /morea/DeployMultiMachine/FNetwork.png
 morea_labels:
  - Lab 1

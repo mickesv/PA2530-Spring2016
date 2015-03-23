@@ -13,7 +13,7 @@ morea_experiences:
 morea_assessments:
  - ass_cloud
 morea_type: module
-morea_sort_order: 4
+morea_sort_order: 14
 morea_icon_url: /morea/DeployCloud/logo_cloud.png
 morea_labels:
  - Lab 1
