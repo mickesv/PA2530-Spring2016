@@ -4,7 +4,7 @@ published: true
 morea_id: exp_multimachine_cloud
 morea_type: experience
 morea_summary: "Create a multi-machine setup for your cloud provider"
-morea_sort_order: 1
+morea_sort_order: 2
 ---
 # Prerequisites
 - You have created a DigitalOcean [account]({{site.url}}/morea/DeployCloud/exp_create.html)

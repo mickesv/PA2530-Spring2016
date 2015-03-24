@@ -1,7 +1,7 @@
 ---
 title: "Checkpoint: Deployment"
 published: true
-morea_id: ass_deploycheckpoint
+morea_id: ass_projectdeploycheckpoint
 morea_type: assessment
 morea_sort_order: 3
 morea_outcomes_assessed:

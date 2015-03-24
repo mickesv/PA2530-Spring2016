@@ -3,7 +3,7 @@ title: "Create Cloud Account"
 published: true
 morea_id: exp_create_account
 morea_type: experience
-morea_summary: "Create an account on a cloud provider"
+morea_summary: "Create an account on a cloud provider and set up Vagrant to use it"
 morea_sort_order: 1
 ---
 # Create an Account
@@ -62,8 +62,11 @@ You need an SSH key to allow vagrant to login to your new droplet. Run `ssh-keyg
 - Run `vagrant up` and wait for DigitalOcean to create your droplet
 - Run `vagrant ssh` and poke around.
 
+**Tip:** If you have more than one provider configuration (e.g., you may have one "virtualbox" provider, and one "digital_ocean", you may need to specify which provider to use: `vagrant up --provider=digital_ocean`.
+
 ## Cleanup       
 Once you are done, **don't forget** to run `vagrant destroy -f`!
+
 If you don't, your droplet will keep running and cost you money.
 
 

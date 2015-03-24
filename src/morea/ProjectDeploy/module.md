@@ -12,7 +12,7 @@ morea_experiences:
 morea_assessments:
  - ass_deploy
  - ass_deployreport
- - ass_deploycheckpoint
+ - ass_projectdeploycheckpoint
 morea_type: module
 morea_sort_order: 24
 morea_icon_url: /morea/ProjectDeploy/logo_launch.jpg

@@ -1,10 +1,10 @@
 ---
-title: "Cloud Provisioning"
+title: "Cloud Provisioning and Deployment"
 published: true
 morea_id: exp_provisioning_cloud
 morea_type: experience
-morea_summary: "Provision your cloud multi-machine setup"
-morea_sort_order: 1
+morea_summary: "Provision your cloud multi-machine setup and deploy it on your cloud provider"
+morea_sort_order: 3
 morea_labels:
  - Checkpoint
 ---
@@ -37,6 +37,7 @@ config.vm.provision :puppet
 ## Test
 
 - Run `vagrant up` and wait for DigitalOcean to create your droplets
+- Make sure thay you are indeed running on DigitalOcean and not in a local VM.
 - Run the following:
 
 {% highlight bash %}
