@@ -4,3 +4,4 @@ safe: false
 baseurl: /PA2530-Spring2016
 exclude: [morea]
 morea_theme: cerulean
+url: http://mickesv.github.io/PA2530-Spring2016

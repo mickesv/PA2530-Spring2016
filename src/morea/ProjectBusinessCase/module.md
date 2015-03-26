@@ -6,9 +6,9 @@ morea_outcomes:
  - outcome_businesscase
  - outcome_selectproject
 morea_readings:
+ - reading_projectintro	
  - reading_cloudreason
  - reading_businesscase
- - reading_projectintro	
 morea_experiences:
  - exp_selectproject
  - exp_developbusinesscase

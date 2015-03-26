@@ -11,11 +11,14 @@ This course is offered by Blekinge Institute of Technology.
 
 ---
 
-Start exploring by looking at the [Modules]({{site.baseurl}}/modules) page
+Start exploring by looking at the [Modules]({{site.baseurl}}/modules) page.
 
-In particular, view the [Screencast](#) that introduces the course and the course structure.
+In particular, view the [Course Structure Introduction]({{site.baseurl}}/morea/00_Formalia/reading_coursestructure.html).
+
+Also, be sure to visit the [News]({{site.baseurl}}/news) page regularly.
 
 ---
+
 Extract from Course Syllabus (in Swedish, for now):
 
 

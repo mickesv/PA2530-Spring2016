@@ -6,6 +6,7 @@ morea_outcomes:
  - outcome_virtualbox
  - outcome_vagrant
 morea_readings:
+ - reading_lab1intro
  - reading_virtualbox
  - reading_vagrant
 morea_experiences:

@@ -1,8 +1,8 @@
 ---
-title: "Project Introduction"
+title: "Lab 1 Introduction"
 published: true
-morea_id: reading_projectintro
-morea_summary: "Introducing the project assignment"
+morea_id: reading_lab1intro
+morea_summary: "Introduction to Lab 1"
 morea_type: reading
 morea_sort_order: 0
 morea_url: /#

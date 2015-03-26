@@ -1,12 +1,14 @@
 ---
 title: "Course Formalia"
 published: true
-morea_coming_soon: true
-morea_id: formalia01
+morea_id: reading_formalia
 morea_summary: "Introduction to the Course"
 morea_type: reading
 morea_sort_order: 1
+morea_url: /#
+morea_labels:
+ - Lecture
+ - Coming Soon
 ---
 
-TODO: Lecture Slides
-TODO: Video recording
+<!-- TODO -->
