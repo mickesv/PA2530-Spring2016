@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Multiple Machine Setup | PA2530 Spring 2016 </title>
+  <title> Welcome | PA2530 Spring 2016 </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
 
@@ -56,44 +56,18 @@
 </div>
 
 
-<div class="container">
-  <h1 id="prerequisites">Prerequisites</h1>
-<ul>
-  <li>You have created a DigitalOcean <a href="http://mickesv.github.io/PA2530-Spring2016/morea/DeployCloud/exp_create.html">account</a></li>
-</ul>
+  <h2>Welcome</h2>
+<p class="meta">26 Mar 2015</p>
 
-<h1 id="multiple-machines">Multiple Machines</h1>
-<p>Configure your <code>Vagrantfile</code> to include the following two boxes:</p>
+<div class="post">
+<p>Welcome to the homepage for the course PA2530 Cloud Computing, offered by Blekinge Institute of Technology.</p>
 
-<ul>
-  <li>Application server, with the hostname <code>appserver</code></li>
-  <li>Database server, with the hostname <code>dbserver</code></li>
-</ul>
+<p>We are currently working with creating the course. At the time of writing, most of the assignments are done and we will begin filling up with lectures shortly.</p>
 
-<p>Note that you do not need to modify the <code>config.vm.provider</code> block you created previously.</p>
-
-<h2 id="test">Test</h2>
-
-<ul>
-  <li>Run <code>vagrant up</code> and wait for DigitalOcean to create your droplets</li>
-  <li>Run <code>vagrant ssh &lt;boxname&gt;</code> and poke around.</li>
-</ul>
-
-<h2 id="cleanup">Cleanup</h2>
-<p>Once you are done, <strong>don’t forget</strong> to run <code>vagrant destroy -f</code>!
-If you don’t, your droplet will keep running and cost you money.</p>
-
-<h1 id="summary">Summary</h1>
-<p>You have now created a Vagrant configuration that runs two boxes on a cloud provider (DigitalOcean).</p>
-
-<h2 id="review-questions">Review Questions</h2>
-<ul>
-  <li>How do you provision your droplets individually?</li>
-</ul>
-
-<!-- TODO Should these questions be part of assessments instead? -->
+<p>The first instance of the course will run during Spring 2016, so there’s no hurry, right?</p>
 
 </div>
+
 
 
 
