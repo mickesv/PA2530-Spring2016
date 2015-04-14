@@ -1,0 +1,365 @@
+\documentclass[10pt]{beamer}
+
+%% Use this for 4 on 1 handouts
+%\documentclass[handout]{beamer}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{4 on 1}[landscape, a4paper, border shrink=5mm]
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\def\subitem{\item[\hspace{1.5cm} -]}
+
+
+% Set the presentation mode to BTH
+\mode<presentation>
+{
+	\usetheme{BTH_msv}
+	% Comment this if you do not want to reveal the bullets before they are going to be used
+	\setbeamercovered{transparent}
+}
+
+
+% Information for the title page
+
+\title[]{PA2530\\Cloud Computing}
+\subtitle{Course Formalia}
+%\date[]{}
+
+\author[Mikael Svahnberg]{Mikael Svahnberg\inst{1}}
+\institute[BTH] % (optional, but mostly needed)
+{
+  \inst{1}%
+ Mikael.Svahnberg@bth.se\\
+ School of Computing\\
+ Blekinge Institute of Technology%
+}
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+%\AtBeginSubsection[]
+%{
+%  \begin{frame}<beamer>{Outline}
+%    \tableofcontents[currentsection,currentsubsection]
+%  \end{frame}
+%}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+% Titlepage frame
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% ToC frame
+% Use \section and \subsection commands to get things into the ToC.
+%\begin{frame}
+ %\frametitle{Outline}
+ % \tableofcontents
+%\end{frame}
+
+% -----------------------------
+% Your frames goes here
+% -----------------------------
+\section{A Word about Ourselves}
+\begin{frame}[t]
+\frametitle{Lars Lundberg}
+\begin{itemize}
+\item Professor Lars Lundberg
+\item M.Sc. in Computer Science from Linköping University (1986)
+\item Ph.D. in Computer Engineering from Lund University (1993).
+\item Research interests include parallel and cluster computing, real-time systems and software engineering.
+\item Current work focuses on performance and availability aspects.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Mikael Svahnberg}
+\begin{itemize}
+\item Associate Professor Mikael Svahnberg
+\item Master's degree in Software Engineering @ BTH, 1998
+\item PhD in Software Engineering @ BTH, 2003
+% \item Thesis title: ``Supporting Software Architecture Evolution -- Architecture Selection and Variability''
+\item Research Topics: Software Evolution, Software Architectures, Architecture Evaluation and Selection, Quality Attributes, Requirements Engineering, Requirements Engineering Decision Support, Empirical Software Engineering Research
+\end{itemize}
+\end{frame}
+
+
+\section{Formalia}
+\subsection{Course Homepage}
+\begin{frame}[t]
+\frametitle{Course Homepage}
+\begin{itemize}
+\item \url{http://mickesv.github.io/PA2530-Spring2016/}
+\item View \url{http://youtu.be/flTwMSKe79I} for an introduction to the course homepage structure.
+\end{itemize}
+\end{frame}
+
+
+\subsection{Course Charter}
+\begin{frame}[t]
+\frametitle{Course Charter}
+The course comprises the following elements: 
+\begin{itemize}
+
+\item Bakgrund till Cloud Computing
+\item Översikt över populära cloud-plattformar
+\item Design av cloud-applikationer
+\item Kvalitetsegenskaper i cloud-applikationer
+\item Designmönster för cloud-applikationer
+\item Testning och driftsättning av cloud-applikationer
+\item Övervakning av cloud-applikationer
+\item Konstruktion av en cloud-plattform
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[t]
+\frametitle{Aims and Learning Outcomes}
+On completion of the course the participant will: 
+
+\begin{scriptsize}
+Kunskap och Förståelse:
+\begin{itemize}
+\item Kunna översiktligt presentera konceptet cloud computing och olika cloud-tjänster
+\item Kunna ingående förklara de grundläggande teknologier som används i cloud-system
+\item Kunna ingående resonera om privacy och security i cloud-system
+\end{itemize}
+
+Färdighet och förmåga
+\begin{itemize}
+\item Kunna designa och implementera en cloud-applikation
+\item Kunna driftsätta, testa, och övervaka en cloud-applikation
+\item Kunna optimera en cloud-applikation med avseende på relevanta kvalitetsegenskaper
+\item Kunna använda sig av en existerande hypervisor
+\item Kunna starta virtuella maskiner på en existerande hypervisor
+\item Kunna genomföra enkel lastbalansering på en existerande hypervisor som körs på ett serverkluster
+\end{itemize}
+
+Värderingsförmåga och förhållningssätt
+\begin{itemize}
+\item Kunna resonera om energianvändningen för en cloud-applikation
+\item Kunna resonera om den långsiktiga evolutionen av en cloud-applikation
+\end{itemize}
+\end{scriptsize}
+
+\end{frame}
+
+
+\subsection{Literature}
+
+\begin{frame}[t]
+\frametitle{Literature}
+
+\begin{thebibliography}{10}
+  
+\beamertemplatebookbibitems
+
+\bibitem{Reese:2009}
+  G.~Reese.
+   \newblock {\em Cloud Application Architectures}.
+   \newblock O'Reilly, 2009.
+   \newblock {ISBN-10: 0596156367 | ISBN-13: 978-0596156367}
+
+\bibitem{Rosenberg:2010}
+  M.~Rosenberg.
+  \newblock {\em The Cloud at your Service}.
+  \newblock Manning, 2010.
+  \newblock {ISBN-10: 1935182528 | ISBN-13: 978-1935182528}
+\end{thebibliography}
+\end{frame}
+
+% \subsection{Schedule}
+% \begin{frame}[t]
+% \frametitle{Schedule, 2016}
+
+% \begin{scriptsize}
+
+% \begin{tabular}{ll}
+% Date & Title\\
+% \hline
+% \msvdate{2013}{09}{03} & L01 Introduction\\
+% \msvdate{2013}{09}{06} & L02 Quality Attributes and Architecture Decisions (Note time 10-12)\\
+% \msvdate{2013}{09}{10} & L03 Global Analysis\\
+% \msvdate{2013}{09}{12} & L04 Documenting Software Architectures\\
+% \msvdate{2013}{09}{17} & L05 Styles and Patterns\\
+% \msvdate{2013}{09}{19} & S01 Peer Evaluations (NOTE time: 13-17)\\
+% \msvdate{2013}{09}{24} & L06 Architecture Evaluation and Transformations\\
+% \msvdate{2013}{09}{26} & L07 Formal Specifications for Documentation and Evaluation\\
+% \msvdate{2013}{10}{01} & L08 Architectures for Different Purposes\\
+% \msvdate{2013}{10}{03} & L09 Reality Check\\
+% \msvdate{2013}{10}{22} & S02 Presentations of Architectures\\
+% \msvdate{2013}{10}{24} & S02 Presentations of Architectures\\
+% \hline
+% \end{tabular}
+% \end{scriptsize}
+% \end{frame}
+
+\subsection{Assignments}
+\begin{frame}[t]
+\frametitle{Assignments}
+\begin{itemize}
+\item There are 4 tasks in this course, to be solved \emph{individually}, unless otherwise explicitly granted.
+\begin{itemize}
+\item Lab 1: Virtualisation, Deployment, and Cloud Provisioning
+\item Lab2/Project: Build and Deploy a Cloud Application
+\item Lab 3: Simple Loadbalancing
+\item Reflective Report: Investigation of a Cloud Computing Topic
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Assignment Submission and Dates}
+\begin{itemize}
+\item The course is offered during one study period (1/2 semester)
+\item During this time, you are expected complete all assignments and submit them for marking.
+\item Based on the marking, you \emph{may} need to complement your submissions with additional material.
+\item Complementing assignments can be done during the study period, within four weeks of the end of the study period, or in August.
+\item Complementing assignments after the study period is only allowed if your original submissions were made during the study period and were non-trivial.
+\item An assignment may only be complemented twice.
+\item Given these constraints, you are free to plan your submissions as you see fit.
+\end{itemize}
+\end{frame}
+
+% \begin{frame}[t]
+% \frametitle{Assignment Rubrics}
+% \begin{itemize}
+% \item The assignments are assessed according to a rubric
+% \item There is one rubric for each assignment; there are several criteria in each rubric; there are four different levels for each criterion.
+% \item For each level and criterion, there is a textual description. This description provides generic feedback on what you can improve on an item. In addition, we \emph{may} provide additional feedback that is specific to your assignment.
+% \end{itemize}
+
+% \begin{block}{Example}
+% \begin{scriptsize}
+% If the feedback reads: ``A1TFT: 2'', this shall be interpreted as:\\
+% {\em {\bf Technological Factor Tables} Factors are listed, together with an assessment of their Flexibility \& Changeability and Impact. Some important factors are missed. The Flexibility, Changeability and/or Impact are inaccurate for some.}\\
+% And thus you need to improve e.g. by identifying the missing factors, and make sure that you consistently specify flexibility, changeability, and impact correctly. By reading the levels above, you may find more hints as to what is missing.
+% \end{scriptsize}
+% \end{block}
+% \end{frame}
+
+\begin{frame}[t]
+\frametitle{Resubmissions}
+
+In a resubmission, please:
+\begin{itemize}
+\item highlight changes you have made!
+\item discuss, where applicable, the changes you make
+\end{itemize}
+\end{frame}
+
+\section{Collaboration}
+\begin{frame}
+\frametitle{Assignment Cooperation}
+\begin{itemize}
+\item Cooperate if you want and think you can.
+\item {\bf However:} Each group/person must hand in a report that is uniquely produced by them.
+
+\item Use your own experience when writing the assignments
+\item Discuss
+\item Reflect
+
+\item {\bf DO NOT COPY/CHEAT/PLAGIARISE}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Where to draw the line?}
+\begin{block}{Example Assignment}
+The teacher says: ``Choose company A, B, or C. You must investigate the advertising campaign which that company used in the past two years. Write a report that evaluates the campaign's imåpact and make recommendations for future campaigns in that company. \emph{Do your own work. Hand in an individual report.}
+\end{block}
+
+Suppose 3 students do what is listed below and they do it in this order:
+\begin{enumerate}
+\item The three students discuss the task with other students.
+\item They look at past examples of similar student reports. They discuss together what is good and bad about the other students' work.
+\item Each one chooses company B then discovers the other two have done the same. They decide to discuss ideas.
+\end{enumerate}
+\begin{scriptsize}
+\copyright Jude Carroll
+\end{scriptsize}
+\end{frame}
+\begin{frame}[t]
+\frametitle{Where to draw the line?}
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item They all three decide to do a bit of research on advertising campaigns in general. They all look for information but agree to really go into depth on one aspect (one researches how to measure impact, another looks at design, another looks especially at cost etc.) Everyone makes notes from their research.
+\item They report orally on no. 4 (above) \emph{['Here is what I found out']}. They tell each other useful sources of information and which general sources were especially good.
+\item They exchange research notes on what they have found so far, including sources.
+\item The one person of the three who is really good at information retrieval collects information on company B's advertising campaign(s). He shares what he finds.
+\end{enumerate}
+\begin{scriptsize}
+\copyright Jude Carroll
+\end{scriptsize}
+\end{frame}
+\begin{frame}[t]
+\frametitle{Where to draw the line?}
+\begin{enumerate}
+\setcounter{enumi}{7}
+\item One person organises the report structure, makes headings and gives others a copy.
+\item They all share out the writing. Each person writes two sections, using the shared notes from (6) above. Everyone contributes ideas to the 'conclusions' section and agree what to write.
+\item They combine all the sections. Each student takes the combined draft away in electronic format. Each student, working alone, writes 'over the top' of the others' work. No person changes more than 5\% of a fellow student's work.
+\item Each student submit his or her final report and signs a statement that this is \emph{'an individual report and this is my own work'}.
+\end{enumerate}
+\begin{scriptsize}
+\copyright Jude Carroll
+\end{scriptsize}
+\end{frame}
+
+\section{The Secret Sauce}
+\begin{frame}[t]
+\frametitle{The Secret Formula to\\ passing this course}
+\begin{itemize}
+\item Read the \emph{course book(s)}.
+\item Do the \emph{Readings} in each Course Module.
+\item Work through the \emph{Experietial Learnings} in each Course Module.
+\item Attend the \emph{lectures} to confirm your understanding, get a broader view, and to ask questions.
+\item If you still have questions: use the \emph{discussion forum} or mail the teachers.
+\item Start with the assignments early, {work regularly} on them during office hours.
+\item Do a {risk assessment} early and {plan your work} accordingly.
+\end{itemize}
+
+{\Large\em Good Luck!}
+
+\end{frame}
+
+
+% % -----------------------------
+
+
+% %% All of the following is optional and typically not needed. 
+% %\appendix
+% %\begin{frame}[allowframebreaks]
+% %  \frametitle{For Further Reading}
+% %    
+% %  \begin{thebibliography}{10}
+% %    
+% %  \beamertemplatebookbibitems
+% %  % Start with overview books.
+
+% %  \bibitem{Author1990}
+% %    A.~Author.
+% %    \newblock {\em Handbook of Everything}.
+% %    \newblock Some Press, 1990.
+% %     
+% %  \beamertemplatearticlebibitems
+% %  % Followed by interesting articles. Keep the list short. 
+
+% %  \bibitem{Someone2000}
+% %    S.~Someone.
+% %    \newblock On this and that.
+% %    \newblock {\em Journal of This and That}, 2(1):50--100,
+% %    2000.
+% %  \end{thebibliography}
+% %\end{frame}
+
+\end{document}
+
+

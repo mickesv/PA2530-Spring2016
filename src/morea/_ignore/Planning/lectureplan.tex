@@ -1,0 +1,134 @@
+% Created 2015-03-30 Mon 10:23
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\usepackage[a4paper]{geometry}
+\author{Mikael Svahnberg\thanks{Mikael.Svahnberg@bth.se}}
+\date{2015-03-27}
+\title{PA2530 Cloud Computing Lecture Plan}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 24.4.1 (Org mode 8.2.10)}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+
+\section{Overview}
+\label{sec-1}
+For this course we are evaluating a new publishing framework -- the Morea Framework -- that shows promise to further emphasize the students' learning in a modularised way. Therefore, this course is not available as the usual set of PDF files, but is instead published online at:
+
+\url{http://mickesv.github.io/PA2530-Spring2016/}
+
+\section{Assignments}
+\label{sec-2}
+The course is structured around a series of assignments, that are in turn further broken down into smaller modules akin to Agile ``sprints''. The assignments are:
+
+\begin{enumerate}
+\item Deployment of a Cloud Application
+\item Construction of a Cloud Application
+\item Simple Load Balancing
+\item Investigation of a Cloud Topic
+\end{enumerate}
+
+Below, we briefly present each of these assignments.
+
+\subsection{Deployment of a Cloud Application (1.5 ECTS)}
+\label{sec-2-1}
+In this assignment the students get hands on experience in how to set up a deployment environment such that they can develop and test a cloud application locally on their own computer using virtual machines. They learn how to provision their machines with the necessary software for their application to run. Ultimately, they deploy their environment with a cloud provider.
+\subsection{Construction of a Cloud Application (3 ECTS)}
+\label{sec-2-2}
+This assignment is run as a mini-project. The students pick an application and develop a business case, an architecture, and a test plan, and then implement and deploy it with a cloud provider.
+\subsection{Simple Load Balancing}
+\label{sec-2-3}
+In this assignment the students ``step behind the scenes'' and look at a simple setup as it would appear for a cloud provider. The assignment is to conduct a simple and typical maintenance task, where the cloud provider does load balancing and migrates a virtual machine to another hardware unit.
+\subsection{Investigation of a Cloud Topic}
+\label{sec-2-4}
+This assigment is a reflective report where the students pick a particular topic in cloud computing, conducts an in-depth investigation of the topic (possible including empirical experimentation), and summarise their findings in a report.
+\section{Lectures}
+\label{sec-3}
+The lectures are hooked in to the different course modules as follows.
+\subsection{Course Formalia}
+\label{sec-3-1}
+\subsubsection[Course Structure]{Course Structure\hfill{}\textsc{Screencast}}
+\label{sec-3-1-1}
+Introduces how the course is organised into different modules and assigments.
+\subsubsection[Course Formalia]{Course Formalia\hfill{}\textsc{Lecture}}
+\label{sec-3-1-2}
+Introduction to the course, the lectures, the assignments, and the work distribution.
+Discussion about collaboration rules, and the normal course caveats.
+\subsubsection[Background to Cloud Computing]{Background to Cloud Computing\hfill{}\textsc{Lecture}}
+\label{sec-3-1-3}
+Describes the history and the motivations behind cloud computing, and the principles used to define cloud applications. Briefly introduces legal considerations that need to be addressed when building a cloud application.
+\subsection[Getting Started with Virtualisation]{Getting Started with Virtualisation\hfill{}\textsc{Lab1}}
+\label{sec-3-2}
+\subsubsection[Lab 1 Introduction]{Lab 1 Introduction\hfill{}\textsc{Screencast}}
+\label{sec-3-2-1}
+Puts the lab into context by introducing the concept of different deployment environments and how to build and run a ``local'' cloud application before deploying it on the real cloud. Explains the different steps in the lab.
+\subsection[Provisioning]{Provisioning\hfill{}\textsc{Lab1}}
+\label{sec-3-3}
+\subsection[Multiple Machines]{Multiple Machines\hfill{}\textsc{Lab1}}
+\label{sec-3-4}
+\subsection[Enter The Cloud]{Enter The Cloud\hfill{}\textsc{Lab1}}
+\label{sec-3-5}
+\subsection[The Cloud Business Case]{The Cloud Business Case\hfill{}\textsc{Lab2:Project}}
+\label{sec-3-6}
+\subsubsection[Project Introduction]{Project Introduction\hfill{}\textsc{Screencast}}
+\label{sec-3-6-1}
+Introduces the project assignment and its overall learning goals.
+\subsubsection[Reasons for Using a Cloud Solution]{Reasons for Using a Cloud Solution\hfill{}\textsc{Lecture}}
+\label{sec-3-6-2}
+Expands upon different reasons when a cloud solution might be desirable.
+\subsubsection[Constructing a Cloud Business Case]{Constructing a Cloud Business Case\hfill{}\textsc{Lecture}}
+\label{sec-3-6-3}
+Introduces different cloud platforms, SAAS, IAAS, PAAS,etc., benefits and liabilities of these.
+Discusses Total Cost of Ownership, and a simple model for how to assess and compare different cloud providers.
+\subsection[Cloud Application Architecture]{Cloud Application Architecture\hfill{}\textsc{Lab2:Project}}
+\label{sec-3-7}
+\subsubsection[Cloud Architectures]{Cloud Architectures\hfill{}\textsc{Lecture}}
+\label{sec-3-7-1}
+Introduces and discusses quality attributes that are in particular focus for cloud applications, such as scalability, reliability, efficiency, network usage, cost effectiveness, security, and privacy. Discusses how to construct a software architecture that ``plays well'' with the cloud specific parts of an application as well as the parts run locally.
+\subsection[Implement Cloud Application]{Implement Cloud Application\hfill{}\textsc{Lab2:Project}}
+\label{sec-3-8}
+\subsubsection[Design Solutions/Patterns]{Design Solutions/Patterns\hfill{}\textsc{Lecture}}
+\label{sec-3-8-1}
+Introduces more low-level design solutions and design patterns that e.g. deals with web application design, database design, cloudbursting, cloudfront design, and exponentially expanding storage.
+Also discusses particularities introduced by the requirements on testing and deployment of cloud appliications.
+\subsection[Deploy your Cloud Application]{Deploy your Cloud Application\hfill{}\textsc{Lab2:Project}}
+\label{sec-3-9}
+\subsection[Simple Loadbalancing]{Simple Loadbalancing\hfill{}\textsc{Lab3}}
+\label{sec-3-10}
+\subsubsection[Lab 3 Introduction]{Lab 3 Introduction\hfill{}\textsc{Screencast}}
+\label{sec-3-10-1}
+Introduces the loadbalancing assignment and its overall learning outcomes.
+\subsection[Cloud Investigation]{Cloud Investigation\hfill{}\textsc{lab4:Report}}
+\label{sec-3-11}
+\subsubsection[Introduction to Investigation]{Introduction to Investigation\hfill{}\textsc{Screencast}}
+\label{sec-3-11-1}
+Introduces the empirical investigation of a cloud topic, and its overall learning outcomes.
+\subsection{When Things Go South}
+\label{sec-3-12}
+\section{Company Collaboration}
+\label{sec-4}
+We plan to have guest lectures from City Cloud (a company in Karlskrona) and Compuverde (a company in Karlskrona) and maybe Ericsson. We will probably also do demonstartions using equipment from City Cloud and/or Compuverde.
+
+Moreover, we have commitment from another cloud provider, DigitalOcean to be involved in the development and execution of the course. They have also promised to give a starting voucher to the students so they can do their lab assignments using their services.
+% Emacs 24.4.1 (Org mode 8.2.10)
+\end{document}

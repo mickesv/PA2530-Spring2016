@@ -1,0 +1,77 @@
+#+Title: PA2530 Cloud Computing Lecture Plan
+#+Author: Mikael Svahnberg
+#+Email: Mikael.Svahnberg@bth.se
+#+Date: 2015-03-27
+
+#+EPRESENT_FRAME_LEVEL: 1
+#+OPTIONS: email:t <:t todo:t f:t ':t tags:not-in-toc
+#+LATEX_HEADER: \usepackage[a4paper]{geometry}
+
+
+* Overview
+  For this course we are evaluating a new publishing framework -- the Morea Framework -- that shows promise to further emphasize the students' learning in a modularised way. Therefore, this course is not available as the usual set of PDF files, but is instead published online at:
+
+  http://mickesv.github.io/PA2530-Spring2016/
+
+* Assignments
+  The course is structured around a series of assignments, that are in turn further broken down into smaller modules akin to Agile "sprints". The assignments are:
+
+  1. Deployment of a Cloud Application
+  2. Construction of a Cloud Application
+  3. Simple Load Balancing
+  4. Investigation of a Cloud Topic
+
+  Below, we briefly present each of these assignments.
+
+** Deployment of a Cloud Application (1.5 ECTS)
+   In this assignment the students get hands on experience in how to set up a deployment environment such that they can develop and test a cloud application locally on their own computer using virtual machines. They learn how to provision their machines with the necessary software for their application to run. Ultimately, they deploy their environment with a cloud provider.
+** Construction of a Cloud Application (3 ECTS)
+   This assignment is run as a mini-project. The students pick an application and develop a business case, an architecture, and a test plan, and then implement and deploy it with a cloud provider.
+** Simple Load Balancing
+   In this assignment the students "step behind the scenes" and look at a simple setup as it would appear for a cloud provider. The assignment is to conduct a simple and typical maintenance task, where the cloud provider does load balancing and migrates a virtual machine to another hardware unit.
+** Investigation of a Cloud Topic
+   This assigment is a reflective report where the students pick a particular topic in cloud computing, conducts an in-depth investigation of the topic (possible including empirical experimentation), and summarise their findings in a report.
+* Lectures
+  The lectures are hooked in to the different course modules as follows.
+** Course Formalia
+*** Course Structure						 :Screencast:
+    Introduces how the course is organised into different modules and assigments.
+*** Course Formalia						    :Lecture:
+    Introduction to the course, the lectures, the assignments, and the work distribution.
+    Discussion about collaboration rules, and the normal course caveats.
+*** Background to Cloud Computing 				    :Lecture:
+    Describes the history and the motivations behind cloud computing, and the principles used to define cloud applications. Briefly introduces legal considerations that need to be addressed when building a cloud application.
+** Getting Started with Virtualisation				       :Lab1:
+*** Lab 1 Introduction						 :Screencast:
+    Puts the lab into context by introducing the concept of different deployment environments and how to build and run a "local" cloud application before deploying it on the real cloud. Explains the different steps in the lab.
+** Provisioning							       :Lab1:
+** Multiple Machines						       :Lab1:
+** Enter The Cloud						       :Lab1:
+** The Cloud Business Case				       :Lab2:Project:
+*** Project Introduction					 :Screencast:
+    Introduces the project assignment and its overall learning goals.
+*** Reasons for Using a Cloud Solution 				    :Lecture:
+    Expands upon different reasons when a cloud solution might be desirable.
+*** Constructing a Cloud Business Case 				    :Lecture:
+    Introduces different cloud platforms, SAAS, IAAS, PAAS,etc., benefits and liabilities of these.
+    Discusses Total Cost of Ownership, and a simple model for how to assess and compare different cloud providers.
+** Cloud Application Architecture 			       :Lab2:Project:
+*** Cloud Architectures 					    :Lecture:
+    Introduces and discusses quality attributes that are in particular focus for cloud applications, such as scalability, reliability, efficiency, network usage, cost effectiveness, security, and privacy. Discusses how to construct a software architecture that "plays well" with the cloud specific parts of an application as well as the parts run locally.
+** Implement Cloud Application 				       :Lab2:Project:
+*** Design Solutions/Patterns					    :Lecture:
+    Introduces more low-level design solutions and design patterns that e.g. deals with web application design, database design, cloudbursting, cloudfront design, and exponentially expanding storage.
+    Also discusses particularities introduced by the requirements on testing and deployment of cloud appliications.
+** Deploy your Cloud Application 			       :Lab2:Project:
+** Simple Loadbalancing						       :Lab3:
+*** Lab 3 Introduction						 :Screencast:
+    Introduces the loadbalancing assignment and its overall learning outcomes.
+** Cloud Investigation						:lab4:Report:
+*** Introduction to Investigation				 :Screencast:
+    Introduces the empirical investigation of a cloud topic, and its overall learning outcomes.
+** When Things Go South
+* Company Collaboration
+  We plan to have guest lectures from City Cloud (a company in Karlskrona) and Compuverde (a company in Karlskrona) and maybe Ericsson. We will probably also do demonstartions using equipment from City Cloud and/or Compuverde.
+
+  Moreover, we have commitment from another cloud provider, DigitalOcean to be involved in the development and execution of the course. They have also promised to give a starting voucher to the students so they can do their lab assignments using their services.
+
