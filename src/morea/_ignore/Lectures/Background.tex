@@ -1,0 +1,287 @@
+\documentclass[10pt]{beamer}
+
+%% Use this for 4 on 1 handouts
+%\documentclass[handout]{beamer}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{4 on 1}[landscape, a4paper, border shrink=5mm]
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\def\subitem{\item[\hspace{1.5cm} -]}
+
+
+% Set the presentation mode to BTH
+\mode<presentation>
+{
+	\usetheme{BTH_msv}
+	% Comment this if you do not want to reveal the bullets before they are going to be used
+	\setbeamercovered{transparent}
+}
+
+
+% Information for the title page
+
+\title[]{Background}
+\subtitle{Cloud Computing}
+% \date[]{}
+
+\author[Mikael Svahnberg]{Mikael Svahnberg\inst{1}}
+\institute[BTH] % (optional, but mostly needed)
+{
+  \inst{1}%
+ Mikael.Svahnberg@bth.se\\
+ School of Computing\\
+ Blekinge Institute of Technology%
+}
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+%\AtBeginSubsection[]
+%{
+%  \begin{frame}<beamer>{Outline}
+%    \tableofcontents[currentsection,currentsubsection]
+%  \end{frame}
+%}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+% Titlepage frame
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% ToC frame
+% Use \section and \subsection commands to get things into the ToC.
+%\begin{frame}
+ %\frametitle{Outline}
+ % \tableofcontents
+%\end{frame}
+
+% -----------------------------
+% Your frames goes here
+% -----------------------------
+
+    % - Cloud Background
+    %    - History
+    %    - Motivation
+    %    - Principles
+    %    - Legal Considerations
+
+
+\begin{frame}[t]
+\frametitle{Background}
+Historically, as hardware requirements grew companies would:
+\begin{itemize}
+\item Host their own servers and pay for network access
+\item Outsource to an IT service provider
+\end{itemize}
+
+Challenges with this:
+\begin{itemize}
+\item Expensive
+\item Not Elastic (Contractually fixed service levels)
+\item High entry barriers
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[t]
+\frametitle{Cloud Computing}
+Characteristica that identifies a cloud service:
+\begin{itemize}
+\item Offered by a third party
+\item Available when needed
+\item Dynamically scalable
+\item Low initial investment to get started
+\item Pay for what you use, when you use it
+\item Easily accessible
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Five Main Principles}
+\begin{itemize}
+\item Pooled Computing Resources
+\item Virtualised Computing Resources
+\item Elastic Scaling up or down as needed
+\item Automated creation/deletion of virtual machines
+\item Resource usage billed only as used.
+\end{itemize}
+
+\ldots
+\begin{itemize}
+\item Note that \emph{most} of these are oriented towards the underlying technology.
+\item Together, they enable a cloud provider to offer the service at a lower cost than for a company to host the servers themselves.
+\item Ends up in the ability to offer the last bullet.
+\item Network?
+\item Access API
+\item Storage + Databases
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[t]
+\frametitle{Cloud Benefits}
+
+\begin{itemize}
+\item Lower Initial barrier: Capital expenses $\rightarrow$ Operational expenses
+\item Responsiveness: You do not have to wait for procurement of new servers.
+\item Security: Dedicated staff whose sole business is to care about security issues
+\subitem (Is this true for all types of cloud services?)
+\item 
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[t]
+\frametitle{{\textbackslash}b[A-Z]A\{2\}S{\textbackslash}b}
+\begin{itemize}
+\item IAAS Infrastructure As A Service
+\item PAAS Platform As A Service
+\item SAAS Software As A Service
+\item FAAS Framework As A Service
+\item AAAS Application As A Service
+\end{itemize}
+
+Also:
+\begin{itemize}
+\item DAAS Private Clouds
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Some popular Cloud Providers}
+\begin{itemize}
+\item Amazon EC2 (IAAS)
+\item DigitalOcean (IAAS)
+\item Microsoft Azure (IAAS)
+\item Microsoft OneDrive (PAAS?)
+\item Microsoft Office Online (AAAS)
+\item Google Drive (PAAS?)
+\item Google Docs (AAAS)
+\item Google App Engine (PAAS)
+\item Rackspace (IAAS)
+\item Gmail/Yahoo/Outlook (AAAS)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[t]
+\frametitle{Reasons for using the Cloud}
+\begin{itemize}
+\item Need more Capacity
+\subitem Computing Power
+\subitem Storage capacity
+\subitem Burst-rate capacity
+\subitem \ldots
+\item Don't want to specialise on Server Maintenance
+\subitem HW Repairs and Replacements
+\subitem OS upgrades
+\subitem Round-the-clock maintenance
+\item Higher Reliability / Availability
+\item Built-in and immediate Scalability (up as well as down)
+\item Easier(?) Software Licensing
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[t]
+\frametitle{Challenges when Developing Cloud Applications}
+\begin{itemize}[<+->]
+\item Understand your needs: What service level do you require (How many servers, for how long? How often?)
+\item Understanding your quality requirements. Why are you going to the cloud?
+\subitem Hint: It is often more than one quality requirement that is important.
+\item Designing a scalable software architecture
+\item Setting up automated deployment of your application
+\item Setting up equivalent and automated development / test / stage / deployment envonments.
+\item Setting up automated Provisioning and Orchestration
+\item Defining your database needs, selecting the right database, and design a (cloud-) scalable database design.
+\item Security! Despite all the fancy promises, if you opt for IAAS or PAAS, you need to take care of this yourself!
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Challenges when Developing Cloud Applications}
+
+\begin{itemize}
+\item Security!! You also need to protect your application from other applications running on the same cloud provider.
+\item Security!!! Design your application to Protect/encrypt your data when it is on the cloud.
+\end{itemize}
+
+Also:
+\begin{itemize}
+\item What is the value of existing infrastructure? How does this influence your cost/value calculations?
+\item Are your software licenses ``cloud friendly''?
+\item Are you aware of the legal, regulatory, and standards that are relevant for your application
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[t]
+\frametitle{Characteristica of a Cloud Platform}
+
+\begin{itemize}
+\item 
+\end{itemize}
+
+% Cloud Architecture Patterns
+% Enabled by (the illusion of ) infinite resources and limited by the maximum capacity of individual virtual machines, cloud scaling is horizontal.
+% • Enabled by a short-term resource rental model, cloud scaling releases resources as easily as they are added.
+% • Enabled by a metered pay-for-use model, cloud applications only pay for currently allocated resources and all usage costs are transparent.
+% • Enabled by self-service, on-demand, programmatic provisioning and releasing of resources, cloud scaling is automatable.
+% • Both enabled and constrained by multitenant services running on commodity hardware, cloud applications are optimized for cost rather than reliability; failure is routine, but downtime is rare.
+% • Enabled by a rich ecosystem of managed platform services such as for virtual ma­ chines, data storage, messaging, and networking, cloud application development is simplified. 
+
+% Leverages cloud-platform services for reliable, scalable infrastructure. (“Let the platform do the hard stuff.”)
+% • Uses non-blocking asynchronous communication in a loosely coupled architecture.
+% • Scales horizontally, adding resources as demand increases and releasing resources as demand decreases.
+% • Cost-optimizes to run efficiently, not wasting resources.
+% • Handles scaling events without downtime or user experience degradation.
+% • Handles transient failures without user experience degradation.
+% • Handles node failures without downtime.
+% • Uses geographical distribution to minimize network latency.
+% • Upgrades without downtime.
+% • Scales automatically using proactive and reactive actions.
+% • Monitors and manages application logs even as nodes come and go.
+
+\end{frame}
+
+% -----------------------------
+
+
+%% All of the following is optional and typically not needed. 
+%\appendix
+%\begin{frame}[allowframebreaks]
+%  \frametitle{For Further Reading}
+%    
+%  \begin{thebibliography}{10}
+%    
+%  \beamertemplatebookbibitems
+%  % Start with overview books.
+
+%  \bibitem{Author1990}
+%    A.~Author.
+%    \newblock {\em Handbook of Everything}.
+%    \newblock Some Press, 1990.
+%     
+%  \beamertemplatearticlebibitems
+%  % Followed by interesting articles. Keep the list short. 
+
+%  \bibitem{Someone2000}
+%    S.~Someone.
+%    \newblock On this and that.
+%    \newblock {\em Journal of This and That}, 2(1):50--100,
+%    2000.
+%  \end{thebibliography}
+%\end{frame}
+
+\end{document}
+
+

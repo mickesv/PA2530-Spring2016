@@ -11,9 +11,11 @@ morea_readings:
  - reading_coursestructure
  - reading_cloudbackground
 morea_experiences:
-# - exp_introduce # Post on Discussion board and introduce yourself
+ - exp_books # Buy books
+ - exp_discussion # Post on Discussion board and introduce yourself
 morea_assessments:
-# - ass_introduce # When intropost has been done
+ - ass_coursestructure
+# - ass_cloudoverview
 morea_type: module
 morea_sort_order: 0
 morea_icon_url: /morea/00_Formalia/introduction.png
