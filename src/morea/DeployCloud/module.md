@@ -11,6 +11,7 @@ morea_experiences:
  - exp_multimachine_cloud
  - exp_provisioning_cloud
  - exp_experiencereport
+ - exp_aws
 morea_assessments:
  - ass_cloud
  - ass_deployexperiencereport
@@ -23,4 +24,4 @@ morea_labels:
  - Checkpoint
  - 10 hours
 ---
-Introduces how to seamlessly transfer your local machine setup to a cloud provider (DigitalOcean)
+Introduces how to seamlessly transfer your local machine setup to a cloud provider.

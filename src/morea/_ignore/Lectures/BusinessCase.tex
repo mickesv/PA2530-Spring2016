@@ -1,0 +1,390 @@
+\documentclass[10pt]{beamer}
+
+%% Use this for 4 on 1 handouts
+%\documentclass[handout]{beamer}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{4 on 1}[landscape, a4paper, border shrink=5mm]
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{marvosym}
+\DeclareUnicodeCharacter{20AC}{\EUR{}}
+
+\def\subitem{\item[\hspace{1.5cm} -]}
+
+
+% Set the presentation mode to BTH
+\mode<presentation>
+{
+	\usetheme{BTH_msv}
+	% Comment this if you do not want to reveal the bullets before they are going to be used
+	\setbeamercovered{transparent}
+}
+
+
+% Information for the title page
+
+\title[]{The Cloud Business Case}
+\subtitle{}
+% \date[]{}
+
+\author[Mikael Svahnberg]{Mikael Svahnberg\inst{1}}
+\institute[BTH] % (optional, but mostly needed)
+{
+  \inst{1}%
+ Mikael.Svahnberg@bth.se\\
+ School of Computing\\
+ Blekinge Institute of Technology%
+}
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+%\AtBeginSubsection[]
+%{
+%  \begin{frame}<beamer>{Outline}
+%    \tableofcontents[currentsection,currentsubsection]
+%  \end{frame}
+%}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+% Titlepage frame
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% ToC frame
+% Use \section and \subsection commands to get things into the ToC.
+%\begin{frame}
+ %\frametitle{Outline}
+ % \tableofcontents
+%\end{frame}
+
+% -----------------------------
+% Your frames goes here
+% -----------------------------
+
+\begin{frame}[t]
+\frametitle{Economics}
+
+\begin{itemize}
+\item I know. Boring, but it must be said.
+\item This is what you need to do in order to argue your case for your boss.
+\end{itemize}
+
+A Scale of Different Deployment Models:
+\begin{itemize}
+\item Traditional Internal IT
+\only<2>{\subitem All IT infrastructure is is capital expenditure}
+\item Colocation
+\only<3>{
+\subitem You pay for the hardware,
+\subitem but place it at a colocation facility
+\subitem Facility provides Power, Cooling, Rack Space, Network connectivity, Backup power, Physical Securuty
+\subitem Turns some of these into operational expenditures
+}
+\item Managed Service
+\only<4>{
+\subitem As Colocation, but you also rent the servers and networking hardware
+}
+\item Cloud Model
+\only<5>{
+\subitem As in a Managed Service, but you rent \emph{virtualised resources}.
+\subitem Therefore, you only pay for what you use.
+}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Example}
+Let's say you need:
+\begin{itemize}
+\item 2 firewalls: 2*1500€ = 3000€
+\item 6 commodity servers: 6*3000€ = 18 000€
+\end{itemize}
+
+You also need (not counted in example):
+\begin{itemize}
+\item a Room to keep your stuff in
+\item an Internet Connection
+\item a Rack Cabinet
+\item a Network Switch
+\item Load Balancing
+\item Cooling
+\item Someone managing the hardware
+\item Licenses for your software
+\item \ldots
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Example: Internal Deployment}
+\begin{tabular}{rrl}
+&& Internal Deployment\\
+\hline
+  &  3 000€ & Firewalls\\
++ & 18 000€ & Servers\\
+\cline{2-2}\\
+= & 21 000€ & Total Capital Expenditure\\
+\cline{2-2}\\
+/ &      36 & Depreciation over 3 years\\
+\cline{2-3}\\
+= &    600€ & Cost per month\\
+\hline
+\end{tabular}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Example: Cloud Deployment}
+\begin{tabular}{rrl}
+&& Cloud Deployment\\
+\hline
+  &  20\$ & per month for 2 Firewalls / Load Balancers\\
++ & 60\$ & per month 6 Servers\\
+\cline{2-2}\\
+= & 80\$ & Total Operational Expenditure \emph{per month}\\
+\hline
+\end{tabular}
+\end{frame}
+
+
+\begin{frame}[t]
+\frametitle{Understand your requirements}
+\begin{itemize}
+\item In order to make your business case, you need to \emph{understand your requirements}
+\item Understanding your requirements is about understanding the \emph{quality requirements} of your cloud application.
+\item Some quality requirements are more in focus than others 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Cloud Quality Requirements}
+\begin{itemize}
+\item Scalability
+\item Reliability / Availability
+\item Performance
+\subitem Storage
+\subitem Capacity
+\subitem Bandwidth
+\item Security
+\item Privacy
+\item Cost Optimisation
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Quality Requirements are Time Dependent}
+\begin{itemize}
+\item In traditional deployment, you pick one service level and dimension your solution accordingly.
+\item This may mean a trade-off that during extreme peak hours your consciously do not meet your quality requirements targets.
+\item In a cloud solution, you can always spin up more machines as a consequence of (planned) peaks.
+\item Therefore, you need to view your quality requirements over time -- often with a per-hour granularity.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Example, Scalability}
+\centering
+\only<1>{
+\includegraphics[width=10cm]{FusersMonth.pdf}\\
+{\scriptsize Average number of Concurrent Users per Month, expected growth scenario.}
+}
+
+\only<2>{
+\includegraphics[width=10cm]{FusersDay.pdf}\\
+{\scriptsize Number of Concurrent Users per Hour and Day, measured.}
+}
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Scalability}
+\begin{itemize}
+\item Max / median number of concurrent users
+\item Max / median acceptable response time
+\item Burst rates \& times
+\item Max / median latency
+\end{itemize}
+
+At any given time, this influences:
+\begin{itemize}
+\item The number of required servers
+\item The computing power of these
+\item The bandwidth requirements
+\item The speed of your storage devices
+\item The size of your storage devices
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Reliability and Availability}
+\begin{itemize}
+\item Transient failures
+\item Upgrades without downtime
+\item Continuous monitoring and logging of application’s health
+\item Backups
+\item Recovery
+\item Migration
+\item Data persistency
+\end{itemize}
+
+\only<1>{
+Availability (may) require:
+\begin{itemize}
+\item That your cloud resources have sufficient storage for backups
+\item That you have additional storage resources for long-term backups
+\item That you use (slow) long-term storage in tandem with faster storage solutions.
+\item That you distribute your application over several datacenters
+\item That you implement loadbalancing between your servers on different datacenters.
+\end{itemize}
+}
+\only<2>{
+Also:
+\begin{itemize}
+\item What does the cloud provider promise in terms of uptime?
+\end{itemize}
+}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Performance}
+\begin{itemize}
+\item Similar to Scalability:
+\item Computing power
+\item Storage response times
+\item Storage capacity
+\item Network bandwidth
+\end{itemize}
+
+At any given time, this influences:
+\begin{itemize}
+\item The number of required servers
+\item The computing power of these
+\item The bandwidth requirements
+\item The speed of your storage devices
+\item The size of your storage devices
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Security}
+\begin{itemize}
+\item Data security
+\item Hosts security
+\item Network security
+\end{itemize}
+
+Things to look out for:
+\begin{itemize}
+\item What promises do your cloud provider make wrt. storage persistency?
+\item What services are provided to maintain your server platform, especially security patches?
+\item Is it possible for other users of the same cloud vendor to get at your site ``from behind''?
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Privacy}
+\begin{itemize}
+\item Where is your data stored?
+\item Under what circumstances would your cloud provider have to give up your data (e.g. as a response to a subpoena)?
+\item What measures do *you* need to take to protect the privacy of your users?
+\item What do your cloud provider promise?
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Summary}
+\begin{itemize}
+\item Your quality requirements determine:
+\begin{itemize}
+\item the cloud infrastructure you need
+\item the support structure around the servers you need from your cloud provider
+\end{itemize}
+\item In turn, this determines what you must pay
+\item Arguing for \emph{why} you need that service level, and what it will cost you is your business case.
+\item \emph{Best(?) Alternative Investment}: What will it cost you to host your servers yourself?
+\item Remember: With a cloud solution you can have a much finer time granularity, and spin up servers to only deal with e.g. peak hours.
+\end{itemize}
+\end{frame}
+
+
+
+
+    % Number of required machines
+    % Computing power of machines
+    % Storage requirements
+    % Bandwidth requirements
+    % Domain name(s)
+    % Specific security requirements
+    % Specific privacy requirements
+
+
+    % Scalability, in particular being flexible in terms of:
+    %     Max / median number of concurrent users
+    %     Max / median acceptable response time
+    %     Burst rates & times
+    %     Max / median latency
+    % Reliability / Availability, in particular your requirements on being able to handle:
+    %     Transient failures
+    %     Upgrades without downtime
+    %     Continuous monitoring and logging of application’s health
+    %     Backups
+    %     Recovery
+    %     Migration
+    %     Data persistency
+    % Performance, your base and growth requirements on:
+    %     Computing power
+    %     Storage
+    % Security, your particular requirents for security of:
+    %     Data
+    %     Your hosts
+    %     Your network (or, to be specific, your cloud provider’s network).
+    % Privacy
+    % Cost Optimisation
+
+
+
+
+% -----------------------------
+
+
+%% All of the following is optional and typically not needed. 
+%\appendix
+%\begin{frame}[allowframebreaks]
+%  \frametitle{For Further Reading}
+%    
+%  \begin{thebibliography}{10}
+%    
+%  \beamertemplatebookbibitems
+%  % Start with overview books.
+
+%  \bibitem{Author1990}
+%    A.~Author.
+%    \newblock {\em Handbook of Everything}.
+%    \newblock Some Press, 1990.
+%     
+%  \beamertemplatearticlebibitems
+%  % Followed by interesting articles. Keep the list short. 
+
+%  \bibitem{Someone2000}
+%    S.~Someone.
+%    \newblock On this and that.
+%    \newblock {\em Journal of This and That}, 2(1):50--100,
+%    2000.
+%  \end{thebibliography}
+%\end{frame}
+
+\end{document}
+
+

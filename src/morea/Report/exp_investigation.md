@@ -76,20 +76,36 @@ Pick at least three hypervisors and compare them. What are the benefits and liab
 
 
 ## A Comparison of Configuration Management Tools
-Pick at least two configuration management tools/provisioning tools that you have not used yet. Compare them with the one you used for your project, and configure your project to use at least one of them.
+Pick at least two configuration management tools/provisioning tools that you have not used yet. Compare them with the one you used for your project. Investigate their capabilities and limitations. What can you do with each tool, what can you not do? How do you use them to maintain and monitor a large cloud solution?
 
-Investigate their capabilities and limitations. What can you do with each tool, what can you not do? How do you use them to maintain and monitor a large cloud solution?
+Configure your project to use at least one of them. Summarise your experiences and lessons learned.
+
 
 ## A Comparison of Different Cloud Providers
 Pick at least three cloud providers and compare them. What services do each provider offer? What service levels, in terms of reliability, availability, scalability, security, and privacy, do they offer? What types of machines do they offer? At what prices?
 
 Create a set of at least five scenarios for using a cloud solution. Describe each briefly and then assess each of your investigated cloud providers' ability to satisfy your scenario, and at what total cost of "ownership".
 
+Configure your project to use at least one other cloud provider. Summarise your experiences and lessons learned.
+
+
 ## An investigation of Cloud Database Design Solutions
 Explore how you design databases to provide the best cloud solution. Factor in aspects such as reliability, availability, scalability, security, and privacy.
 
+Implement a scalable database solution for your project. Summarise your experiences and lessons learned.
+
+
 ## CloudFront Solutions
 Explore how you can design and deploy your application such that it is always being served from the datacenter which is closest to the user. Some cloud providers have tool support for this; explore these tools. How would you deal with roaming users?
+
+Configure your project to use a CloudFront solution. Summarise your experiences and lessons learned.
+
+
+## A Comparison of LoadBalancing tools and techniques
+Implement loadbalancing using at least two different technologies (e.g. nginx and haproxy). Investigate their capabilities and limitations. What can you do with each tool, what can you not do?
+
+Configure your project to use at least one of them. Summarise your experiences and lessons learned.
+
 
 <!-- TODO more topics-->
 

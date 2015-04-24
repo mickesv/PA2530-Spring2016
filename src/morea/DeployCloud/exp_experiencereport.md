@@ -19,3 +19,4 @@ Write a document that summarises your workflow.
 - What did you to do solve the challenges?
 - What options did you have? Please explore each option to some depth and motivate why you did or did not select it.
 - What are the most important points to remember? What would you like to pass on to the developer that will take over your work once you get your promotion?
+- What are the security implications of using the stock Ubuntu image provided by the Cloud Provider?

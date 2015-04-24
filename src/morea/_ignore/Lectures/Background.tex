@@ -114,6 +114,7 @@ Characteristica that identifies a cloud service:
 \item Resource usage billed only as used.
 \end{itemize}
 
+\pause
 \ldots
 \begin{itemize}
 \item Note that \emph{most} of these are oriented towards the underlying technology.
@@ -134,13 +135,12 @@ Characteristica that identifies a cloud service:
 \item Responsiveness: You do not have to wait for procurement of new servers.
 \item Security: Dedicated staff whose sole business is to care about security issues
 \subitem (Is this true for all types of cloud services?)
-\item 
 \end{itemize}
 \end{frame}
 
 
 \begin{frame}[t]
-\frametitle{{\textbackslash}b[A-Z]A\{2\}S{\textbackslash}b}
+\frametitle{Types of Cloud Services:\\ {\textbackslash}b[A-Z]A\{2\}S{\textbackslash}b}
 \begin{itemize}
 \item IAAS Infrastructure As A Service
 \item PAAS Platform As A Service
@@ -151,7 +151,7 @@ Characteristica that identifies a cloud service:
 
 Also:
 \begin{itemize}
-\item DAAS Private Clouds
+\item DAAS Datacenter As A Service (Private Clouds)
 \end{itemize}
 \end{frame}
 
@@ -203,7 +203,7 @@ Also:
 \item Setting up equivalent and automated development / test / stage / deployment envonments.
 \item Setting up automated Provisioning and Orchestration
 \item Defining your database needs, selecting the right database, and design a (cloud-) scalable database design.
-\item Security! Despite all the fancy promises, if you opt for IAAS or PAAS, you need to take care of this yourself!
+\subitem Is it really possible to use a traditional RDBMS shared over several machines? What are your alternatives?
 \end{itemize}
 \end{frame}
 
@@ -211,6 +211,7 @@ Also:
 \frametitle{Challenges when Developing Cloud Applications}
 
 \begin{itemize}
+\item Security! Despite all the fancy promises, if you opt for IAAS or PAAS, you need to take care of this yourself!
 \item Security!! You also need to protect your application from other applications running on the same cloud provider.
 \item Security!!! Design your application to Protect/encrypt your data when it is on the cloud.
 \end{itemize}
@@ -225,33 +226,22 @@ Also:
 
 
 \begin{frame}[t]
-\frametitle{Characteristica of a Cloud Platform}
-
+\frametitle{Summary}
 \begin{itemize}
-\item 
+\item There are several reasons for ``going cloud''
+\item There are several different service levels offered
+\item There is a unique set of development and management challenges when ``going cloud''
 \end{itemize}
 
-% Cloud Architecture Patterns
-% Enabled by (the illusion of ) infinite resources and limited by the maximum capacity of individual virtual machines, cloud scaling is horizontal.
-% • Enabled by a short-term resource rental model, cloud scaling releases resources as easily as they are added.
-% • Enabled by a metered pay-for-use model, cloud applications only pay for currently allocated resources and all usage costs are transparent.
-% • Enabled by self-service, on-demand, programmatic provisioning and releasing of resources, cloud scaling is automatable.
-% • Both enabled and constrained by multitenant services running on commodity hardware, cloud applications are optimized for cost rather than reliability; failure is routine, but downtime is rare.
-% • Enabled by a rich ecosystem of managed platform services such as for virtual ma­ chines, data storage, messaging, and networking, cloud application development is simplified. 
-
-% Leverages cloud-platform services for reliable, scalable infrastructure. (“Let the platform do the hard stuff.”)
-% • Uses non-blocking asynchronous communication in a loosely coupled architecture.
-% • Scales horizontally, adding resources as demand increases and releasing resources as demand decreases.
-% • Cost-optimizes to run efficiently, not wasting resources.
-% • Handles scaling events without downtime or user experience degradation.
-% • Handles transient failures without user experience degradation.
-% • Handles node failures without downtime.
-% • Uses geographical distribution to minimize network latency.
-% • Upgrades without downtime.
-% • Scales automatically using proactive and reactive actions.
-% • Monitors and manages application logs even as nodes come and go.
+In this course:
+\begin{itemize}
+\item Lab 1 focus on getting the development infrastructure in place
+\item The project focus on the design and implementation of your cloud application
+\item Lab 2 goes behind the scenes and reveals one simple thing that the cloud providers need to do
+\end{itemize}
 
 \end{frame}
+
 
 % -----------------------------
 
