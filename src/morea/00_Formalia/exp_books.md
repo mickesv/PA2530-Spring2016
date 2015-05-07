@@ -55,10 +55,18 @@ I still like this book even if it has a few years under the belt by now and may 
 
 <div class="{% cycle 'section-background-1', 'section-background-2' %}">
 <div class="container">
-<img src="{{site.baseurl}}/morea/00_Formalia/Bass.jpg" WIDTH="100" style="margin: 10px 10px"> L: Bass el al., <I>"Software Architecture in Practice"</I>, Addison-Wesley, 2012. ISBN-10: 0321815734 | ISBN-13: 978-0321815736<br>
+<img src="{{site.baseurl}}/morea/00_Formalia/Bass.jpg" WIDTH="100" style="margin: 10px 10px"> L. Bass el al., <I>"Software Architecture in Practice"</I>, Addison-Wesley, 2012. ISBN-10: 0321815734 | ISBN-13: 978-0321815736<br>
 Also a general-purpose software architecture book. I find this book to be less hands on with a design methodology and more shoot-from-the-hip, but there is a large section on <I>architecture tactics</I>, i.e. solutions and structures that address different quality concerns. These are, I find, a great inspiration for the architectural decisions (and thus fits nicely in with Hofmeister et al).
 </div>
 </div>
+
+<div class="{% cycle 'section-background-1', 'section-background-2' %}">
+<div class="container">
+<img src="{{site.baseurl}}/morea/00_Formalia/Arundel.jpg" WIDTH="100" style="margin: 10px 10px">J. Arundel, <I>"Puppet 3: Beginner's Guide"</I>, Packt Publishing, 2013. ISBN-10: 1782161252 | ISBN-13: 978-1782161257<br>
+To dig deeper into Puppet and how to use it to create an enterprise deployment environment, you should look into a book on Puppet. Any book on Puppet would work. I have read a couple and they seem to follow more or less the same format. Arundel is a good enough pick.
+</div>
+</div>
+
 
 <div class="{% cycle 'section-background-1', 'section-background-2' %}">
 <div class="container">

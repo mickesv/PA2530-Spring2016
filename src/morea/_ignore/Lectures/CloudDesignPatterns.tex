@@ -1,0 +1,344 @@
+\documentclass[10pt]{beamer}
+
+%% Use this for 4 on 1 handouts
+%\documentclass[handout]{beamer}
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{4 on 1}[landscape, a4paper, border shrink=5mm]
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\def\subitem{\item[\hspace{1.5cm} -]}
+
+
+% Set the presentation mode to BTH
+\mode<presentation>
+{
+	\usetheme{BTH_msv}
+	% Comment this if you do not want to reveal the bullets before they are going to be used
+	\setbeamercovered{transparent}
+}
+
+
+% Information for the title page
+
+\title[]{Cloud Design Patterns\footnote{Creatively borrowed from B. Wilder, \emph{``Cloud Architecture Patterns''}, O'Reilly, 2012.}}
+\subtitle{}
+% \date[]{}
+
+\author[Mikael Svahnberg]{Mikael Svahnberg\inst{1}}
+\institute[BTH] % (optional, but mostly needed)
+{
+  \inst{1}%
+ Mikael.Svahnberg@bth.se\\
+ School of Computing\\
+ Blekinge Institute of Technology%
+}
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+%\AtBeginSubsection[]
+%{
+%  \begin{frame}<beamer>{Outline}
+%    \tableofcontents[currentsection,currentsubsection]
+%  \end{frame}
+%}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+% Titlepage frame
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% ToC frame
+% Use \section and \subsection commands to get things into the ToC.
+%\begin{frame}
+ %\frametitle{Outline}
+ % \tableofcontents
+%\end{frame}
+
+% -----------------------------
+% Your frames goes here
+% -----------------------------
+\begin{frame}[t]
+\frametitle{Scalability}
+
+\begin{itemize}
+\item (Flexible) Scalability is one of the core features of Cloud Computing
+\item Vertical Scaling (increase capacity per node)
+\item Horizontal Scaling (adding nodes)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[t]
+\frametitle{Measures of Scalability}
+A combination of:
+\begin{itemize}
+\item Concurrent Users
+\item Response Time
+\item Processed items / time unit
+\item Complexity of processing requests
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Issues that influence scalability}
+Scarce resources:
+\begin{itemize}
+\item Computing power
+\item RAM
+\item Storage space
+\item Network bandwidth
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Scaling Mindsets}
+\begin{itemize}
+\item Cetain mindsets help in addressing Cloud Scaling 
+\item These do not affect the architecture \emph{per se}, but influences your choices of solutions.
+\begin{itemize}
+\item Eventual Consistency
+\item Multitenancy
+\item Inevitable Failure
+\item Network Latency
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Eventual Consistency}
+\begin{itemize}[<+->]
+\item \emph{``At any moment, most of an eventially consistent database is consistent, with somne small number of values still being updated''}
+\item CAP theorem: \{Consistency, Availability, Partition Tolerance\}: \emph{Pick two!}
+\item This implies:
+\subitem Data is always(?) available, although not always 100\% correct
+\subitem Your system needs to robustely deal with this.
+\item Compare with RDBMS' \emph{ACID} property.
+\item With a distributed database (using e.g. a NoSQL database), you instead have \emph{BASE}:
+\begin{itemize}
+\item Basically Available
+\item Soft State
+\item Eventually Consistent
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Multitenancy}
+\begin{itemize}
+\item One company (host) operates the application for use by other companies (tenants)
+\item The tenants have the impression that they are alone in using the service
+\item Has implications on:
+\subitem data partitioning
+\subitem security
+\subitem performance management
+\item As much a concern for the cloud provider as for the cloud application provider.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Inevitable Failure}
+\begin{itemize}
+\item The cloud provider is likely to use cheap \emph{commodity hardware}
+\item Therefore, hardware failure is inevitable (although not necessarily frequent)
+\item This implies that your application need to be \emph{robust}
+\item Focus shift from MTBF to MTTR
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Network Latency}
+\begin{itemize}
+\item Problem: You are \emph{here}, your data are \emph{there}, and your users are \emph{yonder}
+\item \ldots And the servers running your applications are neither \emph{here nor there}.
+\item Moving data between your servers and, eventually, to the users requires network bandwidth
+\item Strategies your application may take:
+\begin{itemize}
+\item Data compression
+\item Background processing
+\item Predictive fetching
+\item Moving your application closer to the users
+\item Moving the data closer to the users
+\item Moving data processing nodes closer together
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[t]
+\frametitle{Scalability Patterns}
+\begin{itemize}
+\item Generic Scalability:
+\begin{itemize}
+\item Horizontally Scaling Compute Pattern
+\item Queue-Centric Workflow Pattern
+\item Auto-Scaling Pattern
+\end{itemize}
+\item Eventual Consistency
+\begin{itemize}
+\item MapReduce Pattern
+\item Database Sharding Pattern
+\end{itemize}
+\item Multitenancy and Inevitable Failure
+\begin{itemize}
+\item Busy Signal Pattern
+\item Node Failure Pattern
+\end{itemize}
+\item Network Latency
+\begin{itemize}
+\item Colocate Pattern
+\item Valet Key Pattern
+\item CDN Pattern
+\item Multisite Deployment Pattern
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[t]
+\frametitle{Challenges with Horizontal Scaling}
+\begin{itemize}
+\item Load Balancing
+\item Synchronisation between nodes
+\item Managing Session State
+\subitem Sticky sessions? (What happens if that node breaks?)
+\subitem Cookies (for small amounts of data)
+\subitem Cookies (as a key to the full db record)
+\item Capacity Planning (per time unit)
+\item Sizing the virtual machines
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[t]
+\frametitle{Queue Centric Workflow}
+\begin{itemize}
+\item Problem: Some jobs take longer time. This may impact the responsiveness of the application.
+\item Solution:
+\subitem Package the tasks to do in a job description and add it to a queue.
+\subitem Worker(s) in the service tier picks work from the job queue and processes them in due order.
+\subitem cf. Eventual Consistency
+\item Challenges:
+\subitem One worker picks a job but fails halfway through.
+\subitem Solutions: Invisibility window, idempotent processing (for repeat messages), handling of poison messages
+\end{itemize}
+\end{frame}
+
+
+% % trivial?
+% \begin{frame}[t]
+% \frametitle{Auto-Scaling Pattern}
+% \begin{itemize}
+% \item Problem: Automate the scaling so that you do not have to manually spin up new servers to cope with (scheduled) fluctuations in demand.
+
+% \end{itemize}
+% \end{frame}
+
+\begin{frame}[t]
+\frametitle{MapReduce}
+\begin{itemize}
+\item Map: execute function on each instance of the data
+\item Reduce: merge the results of a map into a combined and consistent data set again.
+\item Challenges:
+\subitem moving big data takes time and is expensive.
+\subitem Solution: ``bring the compute to the data''
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Database Sharding}
+\begin{itemize}
+\item Classic database division: Vertical
+\item For example: db\{users\}, db\{orders\}, db\{warehouse\}, \ldots
+\item Sharding divides the data horizontally.
+\item All db instances have the entire schema, and contains a subset of all the rows.
+\item One db row only exist in one db.
+\item Challenges:
+\subitem Deciding how to shard your data to be most efficient
+\subitem Cloudfronting (where should a particular row be?)
+\subitem Defining the shards to minimise database queries over several shards, or shards far away.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Node Failure}
+\begin{tabular}{lll}
+Scenario & Warning & Impact\\
+\hline
+Sudden failure & no & local data is lost\\
+Platform shutdown/restart & yes & local data may be available\\
+Application shutdown/restart & yes & local data is available\\
+Shutdown/destroy & yes & local data is lost\\
+\hline
+\end{tabular}
+
+\vspace{0.5cm}
+Advice:
+\begin{itemize}
+\item Treat all interruptions as node failures
+\item Maintain sufficient capacity for failure \emph{(N+1 rule)}
+\item Load balancing to minimise interruption for user
+\item Combine with other patterns, e.g. queue-centric workflow pattern, busy signal pattern
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{Summary}
+\begin{itemize}
+\item There are a few mindsets that influence your choices of solutions for a cloud application
+\begin{scriptsize}
+\begin{itemize}
+\item Eventual Consistency
+\item Multitenancy
+\item Inevitable Failure
+\item Network Latency
+\end{itemize}
+\end{scriptsize}
+\item Related to these mindsets, there are a number of design patterns for addressing them in a cloud setting.
+\item Some of these are mentioned in this lecture.
+\item Some of these are discussed in some further detail.
+\item As usual, when discussing architecture and design patterns, the details are not available until you design \emph{your specific application}.
+\end{itemize}
+\end{frame}
+
+
+% -----------------------------
+
+
+%% All of the following is optional and typically not needed. 
+%\appendix
+%\begin{frame}[allowframebreaks]
+%  \frametitle{For Further Reading}
+%    
+%  \begin{thebibliography}{10}
+%    
+%  \beamertemplatebookbibitems
+%  % Start with overview books.
+
+%  \bibitem{Author1990}
+%    A.~Author.
+%    \newblock {\em Handbook of Everything}.
+%    \newblock Some Press, 1990.
+%     
+%  \beamertemplatearticlebibitems
+%  % Followed by interesting articles. Keep the list short. 
+
+%  \bibitem{Someone2000}
+%    S.~Someone.
+%    \newblock On this and that.
+%    \newblock {\em Journal of This and That}, 2(1):50--100,
+%    2000.
+%  \end{thebibliography}
+%\end{frame}
+
+\end{document}
+
+
