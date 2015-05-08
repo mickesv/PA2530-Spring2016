@@ -4,7 +4,7 @@ published: true
 morea_id: exp_developbusinesscase
 morea_type: experience
 morea_summary: "Develop a Q&D Business Case for your Project"
-morea_sort_order: 2
+morea_sort_order: 3
 ---
 # Prerequisites
 - You have [Selected a Project]({{site.baseurl}}/morea/ProjectBusinessCase/exp_selectproject.html) and briefly described it.
