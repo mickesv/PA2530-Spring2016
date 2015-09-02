@@ -9,6 +9,7 @@ morea_readings:
  - reading_provisioning
  - reading_provisioning_vagrant
  - reading_literatedevops
+ - reading_vsftp
 morea_experiences:
  - exp_provisioning
  - exp_provisioning_puppet
