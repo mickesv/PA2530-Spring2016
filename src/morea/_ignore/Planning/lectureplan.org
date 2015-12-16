@@ -1,7 +1,7 @@
 #+Title: PA2530 Cloud Computing Lecture Plan
 #+Author: Mikael Svahnberg
 #+Email: Mikael.Svahnberg@bth.se
-#+Date: 2015-03-27
+#+Date: 2015-12-16
 
 #+EPRESENT_FRAME_LEVEL: 1
 #+OPTIONS: email:t <:t todo:t f:t ':t tags:not-in-toc
@@ -27,9 +27,9 @@
    In this assignment the students get hands on experience in how to set up a deployment environment such that they can develop and test a cloud application locally on their own computer using virtual machines. They learn how to provision their machines with the necessary software for their application to run. Ultimately, they deploy their environment with a cloud provider.
 ** Construction of a Cloud Application (3 ECTS)
    This assignment is run as a mini-project. The students pick an application and develop a business case, an architecture, and a test plan, and then implement and deploy it with a cloud provider.
-** Simple Load Balancing
+** Simple Load Balancing (1 ECTS)
    In this assignment the students "step behind the scenes" and look at a simple setup as it would appear for a cloud provider. The assignment is to conduct a simple and typical maintenance task, where the cloud provider does load balancing and migrates a virtual machine to another hardware unit.
-** Investigation of a Cloud Topic
+** Investigation of a Cloud Topic (2 ECTS)
    This assigment is a reflective report where the students pick a particular topic in cloud computing, conducts an in-depth investigation of the topic (possible including empirical experimentation), and summarise their findings in a report.
 * Lectures
   The lectures are hooked in to the different course modules as follows.
